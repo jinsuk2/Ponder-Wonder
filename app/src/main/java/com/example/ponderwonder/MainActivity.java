@@ -20,6 +20,9 @@ import android.view.View;
 
 import com.google.android.material.navigation.NavigationView;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -31,21 +34,39 @@ public class MainActivity extends AppCompatActivity {
 
     private void setupNavigation() {
         // TODO: Init the NavBar here
+        Toolbar menuBar = findViewById(R.id.menuBar);
+        this.setSupportActionBar(menuBar);
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setDisplayShowCustomEnabled(true);
 
         DrawerLayout drawerLayout = findViewById(R.id.drawerLayout);
         NavController navController = Navigation.findNavController(this, R.id.mainNavigationFragment);
-        NavigationUI.setupActionBarWithNavController(this, navController, drawerLayout);
 
-//        AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(navController.getGraph()).setDrawerLayout(drawerLayout).build();
+        Set<Integer> topLevels = new HashSet<Integer>();
+        topLevels.add(R.id.journal);
+        topLevels.add(R.id.today);
+        topLevels.add(R.id.schedules);
+
+        AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(topLevels).setDrawerLayout(drawerLayout).build();
+
+        NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
+
         NavigationView navigationView = findViewById(R.id.navigationView);
         NavigationUI.setupWithNavController(navigationView, navController);
     }
 
-//    @Override
-//    public boolean onOptionsItemSelected(MenuItem item) {
-//        NavController navController = Navigation.findNavController(this, R.id.mainNavigationFragment);
-//        return NavigationUI.onNavDestinationSelected(item, navController)
-//                || super.onOptionsItemSelected(item);
-//    }
+    @Override
+    public boolean onSupportNavigateUp() {
+        DrawerLayout drawerLayout = findViewById(R.id.drawerLayout);
+        return NavigationUI.navigateUp(Navigation.findNavController(this, R.id.mainNavigationFragment), drawerLayout);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem menuItem) {
+        NavController navController = Navigation.findNavController(this, R.id.mainNavigationFragment);
+        return NavigationUI.onNavDestinationSelected(menuItem, navController) || super.onOptionsItemSelected(menuItem);
+    }
 
 }

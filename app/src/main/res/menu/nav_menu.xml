@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/actionToday"
+        android:id="@id/today"
         android:title="@string/labelToday"
         />
     <item
-        android:id="@+id/actionSchedules"
+        android:id="@id/schedules"
         android:title="@string/labelSchedules"
         />
     <item
-        android:id="@+id/actionJournal"
+        android:id="@id/journal"
         android:title="@string/labelJournal"
         />
 </menu>
