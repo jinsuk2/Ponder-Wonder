@@ -12,8 +12,6 @@ import android.view.ViewGroup;
 
 public class SignIn extends Fragment {
 
-//    private OnFragmentInteractionListener mListener;
-
     public SignIn() {
         // Required empty public constructor
     }
@@ -21,15 +19,12 @@ public class SignIn extends Fragment {
     public static SignIn newInstance() {
         SignIn fragment = new SignIn();
         Bundle args = new Bundle();
-        fragment.setArguments(args);
         return fragment;
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-        }
     }
 
     @Override

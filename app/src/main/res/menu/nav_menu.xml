@@ -2,14 +2,14 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/actionToday"
-        android:title="@string/titleHome"
+        android:title="@string/labelToday"
         />
     <item
         android:id="@+id/actionSchedules"
-        android:title="@string/titleSchedule"
+        android:title="@string/labelSchedules"
         />
     <item
         android:id="@+id/actionJournal"
-        android:title="@string/titleJournal"
+        android:title="@string/labelJournal"
         />
 </menu>

@@ -3,8 +3,8 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="titleHome">Home</string>
-    <string name="titleSchedule">Schedules</string>
-    <string name="titleJournal">Journal</string>
     <string name="labelSignIn">SignIn</string>
+    <string name="labelToday">Today</string>
+    <string name="labelSchedules">Schedules</string>
+    <string name="labelJournal">Journal</string>
 </resources>
