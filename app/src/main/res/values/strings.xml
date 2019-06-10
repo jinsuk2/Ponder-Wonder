@@ -7,4 +7,7 @@
     <string name="labelToday">Today</string>
     <string name="labelSchedules">Schedules</string>
     <string name="labelJournal">Journal</string>
+
+    <string name="com_auth0_client_id">YOUR_CLIENT_ID</string>
+    <string name="com_auth0_domain">YOUR_DOMAIN</string>
 </resources>
