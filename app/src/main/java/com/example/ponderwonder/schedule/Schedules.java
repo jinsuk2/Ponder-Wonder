@@ -1,15 +1,30 @@
-package com.example.ponderwonder;
+package com.example.ponderwonder.schedule;
 
 import android.content.Context;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
+
+import com.example.ponderwonder.R;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class Schedules extends Fragment {
+
+    RecyclerView mRecyclerView;
+    List<Schedule> mScheduleList;
+    Schedule mSchedule;
+
+
 
     public Schedules() {
         // Required empty public constructor
@@ -42,12 +57,26 @@ public class Schedules extends Fragment {
 
         // Set adapter
         Context context = view.getContext();
-//        RecyclerView recyclerView = view.findViewById(R.id.schedule_list);
-//        ScheduleListAdapter adapter;
-//        recyclerView.setLayoutManager(new LinearLayoutManager(context));
-//        adapter = new ScheduleListAdapter(recyclerView, context);
-//
-//        recyclerView.setAdapter(adapter);
+        RecyclerView mRecyclerView = view.findViewById(R.id.schedule_recyclerView);
+        TextView noScheduleText = view.findViewById(R.id.no_schedule_msg);
+        GridLayoutManager mGridLayoutManager = new GridLayoutManager(getActivity(), 2);
+        mRecyclerView.setLayoutManager(mGridLayoutManager);
+
+        mScheduleList = new ArrayList<>();
+
+        // obtain list from db
+        // TODO: currently using dummy cards
+        for (int i = 0; i< 20; i++) {
+            mSchedule = new Schedule("test", "testDesc");
+            mScheduleList.add(mSchedule);
+        }
+
+        if (!mScheduleList.isEmpty()) {
+            noScheduleText.setVisibility(View.INVISIBLE);
+        }
+
+        ScheduleAdapter myAdapter = new ScheduleAdapter(context, mScheduleList);
+        mRecyclerView.setAdapter(myAdapter);
 
         return view;
     }

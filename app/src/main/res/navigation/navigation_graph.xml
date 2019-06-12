@@ -22,7 +22,7 @@
     <fragment
         android:id="@+id/schedules"
         android:label="@string/labelSchedules"
-        android:name="com.example.ponderwonder.Schedules"
+        android:name="com.example.ponderwonder.schedule.Schedules"
         tools:layout="@layout/fragment_schedules"
         />
 

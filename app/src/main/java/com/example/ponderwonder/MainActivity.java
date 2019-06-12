@@ -1,7 +1,5 @@
 package com.example.ponderwonder;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -9,18 +7,14 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.NavController;
-import androidx.navigation.NavDestination;
 import androidx.navigation.Navigation;
-import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
-import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.view.View;
 
+import com.example.ponderwonder.schedule.Schedules;
 import com.google.android.material.navigation.NavigationView;
 
 import java.util.HashSet;
@@ -67,9 +61,6 @@ implements NavigationView.OnNavigationItemSelectedListener {
 
         // Handle drawer item clicks
         navigationView.setNavigationItemSelectedListener(this);
-
-        // Should handle first screen based on our discussed logic
-        displayScreen(R.id.today);
 
         NavigationUI.setupWithNavController(navigationView, navController);
     }
