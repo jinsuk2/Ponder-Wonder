@@ -10,15 +10,9 @@ import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
-
 import android.os.Bundle;
 import android.view.MenuItem;
-
 import com.example.ponderwonder.schedule.SchedulesView;
-
-import android.os.Bundle;
-import android.view.MenuItem;
-
 import com.google.android.material.navigation.NavigationView;
 import java.util.HashSet;
 import java.util.Set;
