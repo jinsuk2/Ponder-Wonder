@@ -2,9 +2,12 @@ package com.example.ponderwonder;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.NavController;
 import androidx.navigation.NavDestination;
 import androidx.navigation.Navigation;
@@ -23,7 +26,10 @@ import com.google.android.material.navigation.NavigationView;
 import java.util.HashSet;
 import java.util.Set;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity
+implements NavigationView.OnNavigationItemSelectedListener {
+
+    public ActionBarDrawerToggle toggle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
         Toolbar menuBar = findViewById(R.id.menuBar);
         this.setSupportActionBar(menuBar);
 
-//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 //        getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setDisplayShowCustomEnabled(true);
 
@@ -58,6 +64,13 @@ public class MainActivity extends AppCompatActivity {
 
         // Setup Navigation
         NavigationView navigationView = findViewById(R.id.navigationView);
+
+        // Handle drawer item clicks
+        navigationView.setNavigationItemSelectedListener(this);
+
+        // Should handle first screen based on our discussed logic
+        displayScreen(R.id.today);
+
         NavigationUI.setupWithNavController(navigationView, navController);
     }
 
@@ -67,9 +80,35 @@ public class MainActivity extends AppCompatActivity {
         return NavigationUI.navigateUp(Navigation.findNavController(this, R.id.mainNavigationFragment), drawerLayout) || super.onSupportNavigateUp();
     }
 
-//    @Override
-//    public boolean onOptionsItemSelected(MenuItem menuItem) {
-//        NavController navController = Navigation.findNavController(this, R.id.mainNavigationFragment);
-//        return NavigationUI.onNavDestinationSelected(menuItem, navController) || super.onOptionsItemSelected(menuItem);
-//    }
+    private void displayScreen(int screenId) {
+        Fragment fragment = null;
+
+        switch (screenId) {
+            case R.id.journal:
+                fragment = new Journal();
+                break;
+            case R.id.schedules:
+                fragment = new Schedules();
+                break;
+            case R.id.today:
+                fragment = new Today();
+                break;
+        }
+        if (fragment != null) {
+            FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+            ft.replace(R.id.mainNavigationFragment, fragment);
+            ft.commit();
+        }
+    }
+
+    @SuppressWarnings("StatementWithEmptyBody")
+    @Override
+    public boolean onNavigationItemSelected(MenuItem item) {
+
+        //calling the method displayselectedscreen and passing the id of selected menu
+        displayScreen(item.getItemId());
+        //make this method blank
+        return true;
+    }
+
 }
