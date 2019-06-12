@@ -1,0 +1,78 @@
+{
+    "identityPoolName": "ponderwonder3ef49dc6_identitypool_3ef49dc6",
+    "allowUnauthenticatedIdentities": false,
+    "lambdaLogPolicy": "ponder_3ef49dc6_lambda_log_policy",
+    "openIdLambdaRoleName": "ponder_3ef49dc6_openid_lambda_role",
+    "openIdRolePolicy": "ponder_3ef49dc6_openid_pass_role_policy",
+    "openIdLambdaIAMPolicy": "ponder_3ef49dc6_openid_lambda_iam_policy",
+    "openIdLogPolicy": "ponder_3ef49dc6_openid_lambda_log_policy",
+    "userPoolName": "ponderwonder3ef49dc6_userpool_3ef49dc6",
+    "autoVerifiedAttributes": [
+        "email"
+    ],
+    "mfaConfiguration": "OFF",
+    "mfaTypes": [
+        "SMS Text Message"
+    ],
+    "roleName": "ponder3ef49dc6_sns-role",
+    "roleExternalId": "ponder3ef49dc6_role_external_id",
+    "policyName": "ponder3ef49dc6-sns-policy",
+    "smsAuthenticationMessage": "Your authentication code is {####}",
+    "smsVerificationMessage": "Your verification code is {####}",
+    "emailVerificationSubject": "Your verification code",
+    "emailVerificationMessage": "Your verification code is {####}",
+    "defaultPasswordPolicy": false,
+    "passwordPolicyMinLength": 8,
+    "passwordPolicyCharacters": [],
+    "requiredAttributes": [
+        "email"
+    ],
+    "userpoolClientName": "ponder3ef49dc6_app_client",
+    "userpoolClientGenerateSecret": true,
+    "userpoolClientRefreshTokenValidity": 30,
+    "userpoolClientWriteAttributes": [
+        "email"
+    ],
+    "userpoolClientReadAttributes": [
+        "email"
+    ],
+    "mfaLambdaRole": "ponder3ef49dc6_totp_lambda_role",
+    "mfaLambdaLogPolicy": "ponder3ef49dc6_totp_lambda_log_policy",
+    "mfaPassRolePolicy": "ponder3ef49dc6_totp_pass_role_policy",
+    "mfaLambdaIAMPolicy": "ponder3ef49dc6_totp_lambda_iam_policy",
+    "userpoolClientLambdaRole": "ponder3ef49dc6_userpoolclient_lambda_role",
+    "userpoolClientLogPolicy": "ponder3ef49dc6_userpoolclient_lambda_log_policy",
+    "userpoolClientLambdaPolicy": "ponder3ef49dc6_userpoolclient_lambda_iam_policy",
+    "userpoolClientSetAttributes": false,
+    "resourceName": "ponderwonder3ef49dc6",
+    "authSelections": "identityPoolAndUserPool",
+    "authRoleName": {
+        "Ref": "AuthRoleName"
+    },
+    "unauthRoleName": {
+        "Ref": "UnauthRoleName"
+    },
+    "authRoleArn": {
+        "Fn::GetAtt": [
+            "AuthRole",
+            "Arn"
+        ]
+    },
+    "unauthRoleArn": {
+        "Fn::GetAtt": [
+            "UnauthRole",
+            "Arn"
+        ]
+    },
+    "useDefault": "defaultSocial",
+    "hostedUI": true,
+    "usernameAttributes": [
+        "email"
+    ],
+    "hostedUIDomainName": "ponderwonder3ef49dc6-3ef49dc6",
+    "authProvidersUserPool": [
+        "Google"
+    ],
+    "hostedUIProviderMeta": "[{\"ProviderName\":\"Google\",\"authorize_scopes\":\"openid email profile\",\"AttributeMapping\":{\"email\":\"email\",\"username\":\"sub\"}}]",
+    "oAuthMetadata": "{\"AllowedOAuthFlows\":[\"code\"],\"AllowedOAuthScopes\":[\"phone\",\"email\",\"openid\",\"profile\",\"aws.cognito.signin.user.admin\"],\"CallbackURLs\":[\"https://localhost:3000/\"],\"LogoutURLs\":[\"https://localhost:3000/\"]}"
+}
