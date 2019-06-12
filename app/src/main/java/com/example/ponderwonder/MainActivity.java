@@ -15,8 +15,11 @@ import android.os.Bundle;
 import android.view.MenuItem;
 
 import com.example.ponderwonder.schedule.SchedulesView;
-import com.google.android.material.navigation.NavigationView;
 
+import android.os.Bundle;
+import android.view.MenuItem;
+
+import com.google.android.material.navigation.NavigationView;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -38,8 +41,8 @@ implements NavigationView.OnNavigationItemSelectedListener {
         Toolbar menuBar = findViewById(R.id.menuBar);
         this.setSupportActionBar(menuBar);
 
+//        getSupportActionBar().setDisplayShowTitleEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-//        getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setDisplayShowCustomEnabled(true);
 
         // Load necessary parts
@@ -101,5 +104,4 @@ implements NavigationView.OnNavigationItemSelectedListener {
         //make this method blank
         return true;
     }
-
 }
