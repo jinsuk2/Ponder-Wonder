@@ -17,7 +17,14 @@
         android:label="@string/labelToday"
         android:name="com.example.ponderwonder.Today"
         tools:layout="@layout/fragment_today"
+        >
+
+        <argument
+            android:name="title"
+            android:defaultValue="@string/labelToday"
         />
+
+    </fragment>
 
     <fragment
         android:id="@+id/schedules"

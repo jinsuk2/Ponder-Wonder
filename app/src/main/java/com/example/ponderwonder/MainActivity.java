@@ -44,8 +44,9 @@ implements NavigationView.OnNavigationItemSelectedListener {
         Toolbar menuBar = findViewById(R.id.menuBar);
         this.setSupportActionBar(menuBar);
 
+        getSupportActionBar().setDisplayShowTitleEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-//        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setDisplayShowCustomEnabled(true);
 
         // Load necessary parts
@@ -74,7 +75,7 @@ implements NavigationView.OnNavigationItemSelectedListener {
     @Override
     public boolean onSupportNavigateUp() {
         DrawerLayout drawerLayout = findViewById(R.id.drawerLayout);
-        return NavigationUI.navigateUp(Navigation.findNavController(this, R.id.mainNavigationFragment), drawerLayout) || super.onSupportNavigateUp();
+        return NavigationUI.navigateUp(Navigation.findNavController(this, R.id.mainNavigationFragment), drawerLayout);
     }
 
     private void displayScreen(int screenId) {
@@ -107,5 +108,4 @@ implements NavigationView.OnNavigationItemSelectedListener {
         //make this method blank
         return true;
     }
-
 }
