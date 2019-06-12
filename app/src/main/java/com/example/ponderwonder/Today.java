@@ -11,6 +11,7 @@ import androidx.navigation.Navigation;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 public class Today extends Fragment {
 
@@ -26,18 +27,26 @@ public class Today extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        toSignIn();
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+        final NavController navController = Navigation.findNavController(super.getActivity(), R.id.mainNavigationFragment);
+        final View view = inflater.inflate(R.layout.fragment_today, container, false);
+
+        final Button button = view.findViewById(R.id.testButton);
+
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                navController.navigate(R.id.signIn);
+            }
+        });
+
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_today, container, false);
+        return view;
     }
 
-    private void toSignIn() {
-        NavController navController = Navigation.findNavController(super.getActivity(), R.id.mainNavigationFragment);
-//        navController.navigate(R.id.signIn);
-    }
 }

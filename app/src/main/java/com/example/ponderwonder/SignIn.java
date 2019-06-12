@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
@@ -46,23 +47,25 @@ public class SignIn extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        initSignIn();
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_sign_in, container, false);
-    }
 
-    private void initSignIn() {
-        SignInButton signInButton = getView().findViewById(R.id.googleSignInButton);
+        final View signInView = inflater.inflate(R.layout.fragment_sign_in, container, false);
+        final Button button = signInView.findViewById(R.id.googleSignInButton);
+
 
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestEmail()
                 .build();
+
         mGoogleSignInClient = GoogleSignIn.getClient(super.getActivity(), gso);
-        signInButton.setOnClickListener(new View.OnClickListener() {
-            public void onClick (View v) {
+
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
                 startActivityForResult(mGoogleSignInClient.getSignInIntent(), RC_SIGN_IN);
             }
         });
+
+        return signInView;
     }
 
     @Override
@@ -88,6 +91,7 @@ public class SignIn extends Fragment {
     private void updateUI(GoogleSignInAccount account) {
         if (account != null) {
             // Add navigation to Home Screen after login
+            Toast.makeText(super.getActivity(), "Test", Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -96,4 +100,5 @@ public class SignIn extends Fragment {
         Log.w(name, msg);
         Toast.makeText(super.getActivity(), msg, Toast.LENGTH_SHORT).show();
     }
+
 }
