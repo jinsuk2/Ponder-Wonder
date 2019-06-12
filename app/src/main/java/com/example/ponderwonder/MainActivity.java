@@ -68,9 +68,6 @@ implements NavigationView.OnNavigationItemSelectedListener {
         // Handle drawer item clicks
         navigationView.setNavigationItemSelectedListener(this);
 
-        // Should handle first screen based on our discussed logic
-        displayScreen(R.id.today);
-
         NavigationUI.setupWithNavController(navigationView, navController);
     }
 

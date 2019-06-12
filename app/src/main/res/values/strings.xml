@@ -7,4 +7,5 @@
     <string name="labelToday">Today</string>
     <string name="labelSchedules">Schedules</string>
     <string name="labelJournal">Journal</string>
+    <string name="labelCreateJournal">Create Journal</string>
 </resources>
