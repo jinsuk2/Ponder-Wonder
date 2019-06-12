@@ -18,7 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class Schedules extends Fragment {
+public class SchedulesView extends Fragment {
 
     RecyclerView mRecyclerView;
     List<Schedule> mScheduleList;
@@ -26,7 +26,7 @@ public class Schedules extends Fragment {
 
 
 
-    public Schedules() {
+    public SchedulesView() {
         // Required empty public constructor
     }
 
@@ -34,11 +34,11 @@ public class Schedules extends Fragment {
      * Use this factory method to create a new instance of
      * this fragment using the provided parameters.
      *
-     * @return A new instance of fragment Schedules.
+     * @return A new instance of fragment SchedulesView.
      */
     // TODO: Rename and change types and number of parameters
-    public static Schedules newInstance() {
-        Schedules fragment = new Schedules();
+    public static SchedulesView newInstance() {
+        SchedulesView fragment = new SchedulesView();
         Bundle args = new Bundle();
         return fragment;
     }

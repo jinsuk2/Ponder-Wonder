@@ -14,7 +14,7 @@ import androidx.navigation.ui.NavigationUI;
 import android.os.Bundle;
 import android.view.MenuItem;
 
-import com.example.ponderwonder.schedule.Schedules;
+import com.example.ponderwonder.schedule.SchedulesView;
 import com.google.android.material.navigation.NavigationView;
 
 import java.util.HashSet;
@@ -79,7 +79,7 @@ implements NavigationView.OnNavigationItemSelectedListener {
                 fragment = new Journal();
                 break;
             case R.id.schedules:
-                fragment = new Schedules();
+                fragment = new SchedulesView();
                 break;
             case R.id.today:
                 fragment = new Today();
