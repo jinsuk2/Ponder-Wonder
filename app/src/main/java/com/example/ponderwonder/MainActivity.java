@@ -35,7 +35,8 @@ implements NavigationView.OnNavigationItemSelectedListener {
         Toolbar menuBar = findViewById(R.id.menuBar);
         this.setSupportActionBar(menuBar);
 
-//        getSupportActionBar().setDisplayShowTitleEnabled(true);
+        // Action Bar Config
+        // getSupportActionBar().setDisplayShowTitleEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowCustomEnabled(true);
 
