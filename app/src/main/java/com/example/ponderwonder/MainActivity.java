@@ -12,6 +12,7 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 import android.os.Bundle;
 import android.view.MenuItem;
+import com.example.ponderwonder.schedule.SchedulesView;
 import com.google.android.material.navigation.NavigationView;
 import java.util.HashSet;
 import java.util.Set;
@@ -34,7 +35,8 @@ implements NavigationView.OnNavigationItemSelectedListener {
         Toolbar menuBar = findViewById(R.id.menuBar);
         this.setSupportActionBar(menuBar);
 
-//        getSupportActionBar().setDisplayShowTitleEnabled(true);
+        // Action Bar Config
+        // getSupportActionBar().setDisplayShowTitleEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowCustomEnabled(true);
 
@@ -75,7 +77,7 @@ implements NavigationView.OnNavigationItemSelectedListener {
                 fragment = new Journal();
                 break;
             case R.id.schedules:
-                fragment = new Schedules();
+                fragment = new SchedulesView();
                 break;
             case R.id.today:
                 fragment = new Today();
