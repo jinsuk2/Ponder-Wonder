@@ -13,7 +13,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
+
 public class Today extends Fragment {
+
+    private GoogleSignInAccount mGoogleSignInAccount;
 
     public Today() {
         // Required empty public constructor
@@ -34,9 +38,8 @@ public class Today extends Fragment {
                              Bundle savedInstanceState) {
 
         final NavController navController = Navigation.findNavController(super.getActivity(), R.id.mainNavigationFragment);
-        final View view = inflater.inflate(R.layout.fragment_today, container, false);
-
-        final Button button = view.findViewById(R.id.testButton);
+        final View todayView = inflater.inflate(R.layout.fragment_today, container, false);
+        final Button button = todayView.findViewById(R.id.testButton);
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -46,7 +49,7 @@ public class Today extends Fragment {
         });
 
         // Inflate the layout for this fragment
-        return view;
+        return todayView;
     }
 
 }

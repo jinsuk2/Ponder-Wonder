@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -17,21 +18,31 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.amazonaws.mobile.client.AWSMobileClient;
+import com.amazonaws.mobile.client.Callback;
+import com.amazonaws.mobile.client.IdentityProvider;
+import com.amazonaws.mobile.client.UserStateDetails;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.ApiException;
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 
 import javax.annotation.Nullable;
+
+import static com.amazonaws.mobile.client.internal.oauth2.OAuth2Client.TAG;
 
 public class SignIn extends Fragment {
 
     private static final int RC_SIGN_IN = 9001;
     private GoogleSignInClient mGoogleSignInClient;
     private GoogleSignInOptions mGoogleSignInOptions;
+    private GoogleSignInAccount mGoogleSignInAccount;
+
+    private View mSignInView;
 
     public SignIn() {
         // Required empty public constructor
@@ -51,13 +62,31 @@ public class SignIn extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        // Variables Required
-        final View signInView = inflater.inflate(R.layout.fragment_sign_in, container, false);
-        final SignInButton button = signInView.findViewById(R.id.googleSignInButton);
-        final NavController navController = Navigation.findNavController(super.getActivity(), R.id.mainNavigationFragment);
-        final TextView userName = signInView.findViewById(R.id.user_name);
+        // TODO: Current Error is because AWSMoblieClient's error is regarded as duplicate coz of onError at the bottom for googlesignin
+        // Cognito Pool Register
+//        AWSMobileClient awsMobileClient = AWSMobileClient.getInstance();
+//        awsMobileClient.federatedSignIn(IdentityProvider.GOOGLE.toString(), "GOOGLE_TOKEN_HERE", new Callback<UserStateDetails>() {
+//            @Override
+//            public void onResult(final UserStateDetails result) {
+////                Log.i(TAG, "Signed In!" + result.getUserState().name());
+//            }
+//
+//            @Override
+//            public void onError(Exception e) {
+//                Log.e(TAG, "sign-in error", e);
+////                Toast.makeText(SignIn.super.getContext(), "Error!", Toast.LENGTH_SHORT).show();
+//            }
+//        });
 
-        button.setSize(SignInButton.SIZE_STANDARD);
+        // Variables Required
+        mSignInView = inflater.inflate(R.layout.fragment_sign_in, container, false);
+        final SignInButton signInButton = mSignInView.findViewById(R.id.googleSignInButton);
+        final Button signOutButton = mSignInView.findViewById(R.id.sign_out_button);
+        final NavController navController = Navigation.findNavController(super.getActivity(), R.id.mainNavigationFragment);
+        final TextView userName = mSignInView.findViewById(R.id.user_name);
+
+//        userName.setText(GoogleSignIn.getSignedInAccountFromIntent(mGoogleSignInClient.getSignInIntent()));
+        signInButton.setSize(SignInButton.SIZE_STANDARD);
 
         // Sign In Option
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
@@ -67,29 +96,39 @@ public class SignIn extends Fragment {
         // Init SignInClient
         mGoogleSignInClient = GoogleSignIn.getClient(super.getActivity(), gso);
 
+        mGoogleSignInAccount = GoogleSignIn.getLastSignedInAccount(super.getActivity());
 
         // Click button to SignIn with Google
-        button.setOnClickListener(new View.OnClickListener() {
+        signInButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivityForResult(mGoogleSignInClient.getSignInIntent(), RC_SIGN_IN);
-//                navController.navigate();
+                if ( mGoogleSignInAccount != null) {
+                    userName.setText("Welcome Back! " + mGoogleSignInAccount.getEmail());
+                };
             }
         });
 
-        GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(super.getActivity());
-        if ( account != null) {
-            userName.setText("Welcome Back! " + account.getEmail());
-        };
+        signOutButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mGoogleSignInClient.signOut()
+                        .addOnCompleteListener(SignIn.super.getActivity(), new OnCompleteListener<Void>() {
+                            @Override
+                            public void onComplete(@NonNull Task<Void> task) {
+                                userName.setText("No Current User");
+                            }
+                        });
+            }
+        });
 
-        return signInView;
+        return mSignInView;
     }
 
     @Override
     public void onStart() {
         super.onStart();
-        GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(this.getContext());
-        updateUI(account);
+        updateUI(mGoogleSignInAccount);
     }
 
     @Override

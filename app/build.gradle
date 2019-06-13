@@ -1,5 +1,6 @@
 apply plugin: 'com.android.application'
 apply plugin: 'com.amazonaws.appsync'
+apply plugin: "androidx.navigation.safeargs"
 
 android {
     compileSdkVersion 28
@@ -27,14 +28,18 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.2.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
-    implementation 'androidx.navigation:navigation-fragment:2.0.0'
-    implementation 'androidx.navigation:navigation-ui:2.0.0'
+
+    // Navigation
+    def nav_version = "2.1.0-alpha05"
+
+    implementation "androidx.navigation:navigation-fragment:$nav_version"
+    implementation "androidx.navigation:navigation-ui:$nav_version"
 
     //AWS
     //Base SDK
-    implementation 'com.amazonaws:aws-android-sdk-core:2.13.+'
+    implementation 'com.amazonaws:aws-android-sdk-core:2.13.6'
     //AppSync SDK
-    implementation 'com.amazonaws:aws-android-sdk-appsync:2.8.+'
+    implementation 'com.amazonaws:aws-android-sdk-appsync:2.8.3'
     //Mobile Client for init the SDK
     implementation('com.amazonaws:aws-android-sdk-mobile-client:2.8.+@aar') { transitive = true }
     // Cognito UserPools for SignIn
