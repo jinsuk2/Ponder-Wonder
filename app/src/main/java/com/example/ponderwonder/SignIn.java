@@ -6,12 +6,15 @@ import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
@@ -48,24 +51,45 @@ public class SignIn extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
+        // Variables Required
         final View signInView = inflater.inflate(R.layout.fragment_sign_in, container, false);
-        final Button button = signInView.findViewById(R.id.googleSignInButton);
+        final SignInButton button = signInView.findViewById(R.id.googleSignInButton);
+        final NavController navController = Navigation.findNavController(super.getActivity(), R.id.mainNavigationFragment);
+        final TextView userName = signInView.findViewById(R.id.user_name);
 
+        button.setSize(SignInButton.SIZE_STANDARD);
 
+        // Sign In Option
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestEmail()
                 .build();
 
+        // Init SignInClient
         mGoogleSignInClient = GoogleSignIn.getClient(super.getActivity(), gso);
 
+
+        // Click button to SignIn with Google
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivityForResult(mGoogleSignInClient.getSignInIntent(), RC_SIGN_IN);
+//                navController.navigate();
             }
         });
 
+        GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(super.getActivity());
+        if ( account != null) {
+            userName.setText("Welcome Back! " + account.getEmail());
+        };
+
         return signInView;
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(this.getContext());
+        updateUI(account);
     }
 
     @Override
