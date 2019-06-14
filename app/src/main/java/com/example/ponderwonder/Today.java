@@ -41,6 +41,7 @@ public class Today extends Fragment {
         final View todayView = inflater.inflate(R.layout.fragment_today, container, false);
         final Button button = todayView.findViewById(R.id.testButton);
 
+
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

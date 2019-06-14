@@ -2,6 +2,7 @@ package com.example.ponderwonder;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.net.Uri;
 import android.os.Bundle;
 
@@ -22,6 +23,8 @@ import com.amazonaws.mobile.client.AWSMobileClient;
 import com.amazonaws.mobile.client.Callback;
 import com.amazonaws.mobile.client.IdentityProvider;
 import com.amazonaws.mobile.client.UserStateDetails;
+import com.amazonaws.mobile.config.AWSConfiguration;
+import com.amazonaws.mobileconnectors.cognitoidentityprovider.CognitoUserPool;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -30,6 +33,11 @@ import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+
+import org.json.JSONObject;
+
+import java.io.IOException;
+import java.io.InputStream;
 
 import javax.annotation.Nullable;
 
@@ -41,6 +49,8 @@ public class SignIn extends Fragment {
     private GoogleSignInClient mGoogleSignInClient;
     private GoogleSignInOptions mGoogleSignInOptions;
     private GoogleSignInAccount mGoogleSignInAccount;
+    private AWSConfiguration mAWSConfiguration;
+
 
     private View mSignInView;
 
@@ -109,6 +119,7 @@ public class SignIn extends Fragment {
             }
         });
 
+        // SignOut Button
         signOutButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -162,6 +173,21 @@ public class SignIn extends Fragment {
     private void error(String name, String msg) {
         Log.w(name, msg);
         Toast.makeText(super.getActivity(), msg, Toast.LENGTH_SHORT).show();
+    }
+
+    private String loadJSONFromAsset(Context context, int resourceId) {
+        String json = null;
+        try {
+            InputStream is = context.getResources().openRawResource(resourceId);
+            int size = is.available();
+            byte[] buffer = new byte[size];
+            is.read(buffer);
+            is.close();
+            return new String(buffer, "UTF-8");
+        } catch (IOException e) {
+            Log.e(TAG, "Error loading AWSConfig File : "  + e);
+            return null;
+        }
     }
 
 }
