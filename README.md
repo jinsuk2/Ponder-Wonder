@@ -18,6 +18,7 @@ Ponder & Wonder is an Android Mobile Application that lets you schedule your tra
 `Back-end Development`:
 - AWS Amplify
 - AWS DynamoDB
+- AWS Cognito Pool
 
 `Android Studio`:
 
