@@ -1,24 +1,21 @@
-package com.example.ponderwonder;
+package com.example.ponderwonder.journal;
 
-import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Toast;
-
+import com.example.ponderwonder.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 
-public class Journal extends Fragment {
+public class JournalListView extends Fragment {
 
-    public Journal() {
+    public JournalListView() {
         // Required empty public constructor
     }
 
@@ -29,8 +26,8 @@ public class Journal extends Fragment {
      * @return A new instance of fragment Journal.
      */
     // TODO: Rename and change types and number of parameters
-    public static Journal newInstance() {
-        Journal fragment = new Journal();
+    public static JournalListView newInstance() {
+        JournalListView fragment = new JournalListView();
         Bundle args = new Bundle();
         return fragment;
     }
@@ -44,7 +41,8 @@ public class Journal extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        final View view = inflater.inflate(R.layout.fragment_journal, container, false);
+        // Inflate the layout for this fragment
+        View view = inflater.inflate(R.layout.fragment_journal, container, false);
         final FloatingActionButton createButton = view.findViewById(R.id.create_journal_button);
         final NavController navController = Navigation.findNavController(super.getActivity(),R.id.mainNavigationFragment);
 
@@ -55,8 +53,6 @@ public class Journal extends Fragment {
             }
         });
 
-        // Inflate the layout for this fragment
         return view;
     }
-
 }
