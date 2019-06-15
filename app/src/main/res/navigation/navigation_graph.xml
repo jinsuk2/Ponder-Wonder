@@ -45,7 +45,7 @@
     <fragment
         android:id="@+id/journal"
         android:label="@string/labelJournal"
-        android:name="com.example.ponderwonder.journal.JournalListView"
+        android:name="com.example.ponderwonder.journal.JournalView"
         tools:layout="@layout/fragment_journal"
         >
 

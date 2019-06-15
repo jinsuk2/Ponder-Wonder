@@ -5,16 +5,20 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".journal.JournalListView">
+    tools:context=".journal.JournalView">
 
     <!-- TODO: Update blank fragment layout -->
 
     <TextView
-        android:id="@+id/journal_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="This is where title goes"
+        android:text="Journal page"
         app:layout_constraintTop_toTopOf="parent"/>
+    
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/journal_rv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/create_journal_button"

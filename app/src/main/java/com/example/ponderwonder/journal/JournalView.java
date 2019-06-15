@@ -13,9 +13,9 @@ import com.example.ponderwonder.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 
-public class JournalListView extends Fragment {
+public class JournalView extends Fragment {
 
-    public JournalListView() {
+    public JournalView() {
         // Required empty public constructor
     }
 
@@ -26,8 +26,8 @@ public class JournalListView extends Fragment {
      * @return A new instance of fragment Journal.
      */
     // TODO: Rename and change types and number of parameters
-    public static JournalListView newInstance() {
-        JournalListView fragment = new JournalListView();
+    public static JournalView newInstance() {
+        JournalView fragment = new JournalView();
         Bundle args = new Bundle();
         return fragment;
     }
