@@ -44,8 +44,7 @@ public class JournalAdapter extends RecyclerView.Adapter<JournalAdapter.JournalV
     @Override
     public void onBindViewHolder(@NonNull JournalViewHolder holder, int position) {
         Journal journal = journalList.get(position);
-//        holder.journalImg.setText();
-        holder.journalImg.setImageURI(Uri.parse(journal.getJournalImgUrl()));
+//        holder.journalImg.setImageResource();
         holder.journalTitle.setText(journal.getJournalTitle());
         holder.journalContent.setText(journal.getJournalContent());
     }
