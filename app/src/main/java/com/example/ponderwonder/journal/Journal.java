@@ -1,6 +1,8 @@
 package com.example.ponderwonder.journal;
 
 
+import android.net.Uri;
+
 import java.util.Date;
 
 /**

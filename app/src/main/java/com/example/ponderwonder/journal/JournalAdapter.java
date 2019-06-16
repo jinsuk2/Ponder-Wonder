@@ -1,6 +1,8 @@
 package com.example.ponderwonder.journal;
 
 import android.content.Context;
+import android.net.Uri;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -33,8 +35,8 @@ public class JournalAdapter extends RecyclerView.Adapter<JournalAdapter.JournalV
     @Override
     public JournalViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
-        View baseView = View.inflate(mContext, R.layout.fragment_journal_view, null);
-        JournalViewHolder journalViewHolder = new JournalViewHolder(baseView);
+        View mView = LayoutInflater.from(parent.getContext()).inflate(R.layout.fragment_journal_view, parent, false);
+        JournalViewHolder journalViewHolder = new JournalViewHolder(mView);
         return journalViewHolder;
     }
 
@@ -42,6 +44,7 @@ public class JournalAdapter extends RecyclerView.Adapter<JournalAdapter.JournalV
     public void onBindViewHolder(@NonNull JournalViewHolder holder, int position) {
         Journal journal = journalList.get(position);
 //        holder.journalImg.setText();
+        holder.journalImg.setImageURI(Uri.parse(journal.getJournalImgUrl()));
         holder.journalTitle.setText(journal.getJournalTitle());
         holder.journalContent.setText(journal.getJournalContent());
     }
