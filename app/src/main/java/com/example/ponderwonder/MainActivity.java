@@ -20,6 +20,9 @@ import com.amazonaws.mobile.client.UserStateDetails;
 import com.amazonaws.mobile.client.UserStateListener;
 import com.amazonaws.mobile.config.AWSConfiguration;
 import com.amazonaws.mobileconnectors.appsync.AWSAppSyncClient;
+
+import com.example.ponderwonder.journal.JournalView;
+
 import com.example.ponderwonder.schedule.SchedulesView;
 import com.google.android.material.navigation.NavigationView;
 import java.util.HashSet;
@@ -123,7 +126,7 @@ implements NavigationView.OnNavigationItemSelectedListener {
 
         switch (screenId) {
             case R.id.journal:
-                fragment = new Journal();
+                fragment = new JournalView();
                 break;
             case R.id.schedules:
                 fragment = new SchedulesView();
