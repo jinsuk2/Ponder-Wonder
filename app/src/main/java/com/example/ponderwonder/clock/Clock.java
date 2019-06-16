@@ -14,24 +14,4 @@ import com.example.ponderwonder.R;
 
 public class Clock extends Fragment {
 
-    public Clock() {
-        // Required empty public constructor
-    }
-    public static Clock newInstance() {
-        Clock fragment = new Clock();
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-    }
-
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_clock, container, false);
-    }
-
 }

@@ -1,36 +1,51 @@
 package com.example.ponderwonder.clock;
 
-import android.content.Context;
-import android.net.Uri;
-import android.os.Bundle;
+public class Weather {
+    private String weatherCity;
+    private String weatherCountry;
+    private String weatherTemp;
+    private String weatherState;
+    private String weatherDescription;
 
-import androidx.fragment.app.Fragment;
-
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-
-import com.example.ponderwonder.R;
-
-public class Weather extends Fragment {
-
-    public Weather() {
-        // Required empty public constructor
-    }
-    public static Weather newInstance() {
-        Weather fragment = new Weather();
-        return fragment;
+    public Weather(String city, String country, String temp, String state, String description) {
+        this.weatherCity = city;
+        this.weatherCountry = country;
+        this.weatherTemp = temp;
+        this.weatherState = state;
+        this.weatherDescription = description;
     }
 
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    public String getWeatherCity() {
+        return weatherCity;
     }
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_weather, container, false);
+    public void setWeatherCity(String city) {
+        this.weatherCity = city;
+    }
+
+    public String getWeatherCountry() {
+        return weatherCountry;
+    }
+
+    public void setWeatherCountry(String country) {
+        this.weatherCountry = country;
+    }
+
+    public String getWeatherTemp() { return weatherTemp; }
+
+    public void setWeatherTemp(String temp) {
+        this.weatherTemp = temp;
+    }
+
+    public String getWeatherState() { return weatherState; }
+
+    public void setWeatherState(String state) {
+        this.weatherState = state;
+    }
+
+    public String getWeatherDescription() { return weatherDescription; }
+
+    public void setWeatherDescription(String description) {
+        this.weatherDescription = description;
     }
 }

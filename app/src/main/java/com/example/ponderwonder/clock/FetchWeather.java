@@ -1,20 +1,12 @@
 package com.example.ponderwonder.clock;
 
 import android.content.Context;
-import android.nfc.Tag;
-import android.renderscript.ScriptGroup;
+import android.net.ConnectivityManager;
+import android.telecom.ConnectionRequest;
 import android.util.Log;
-import android.widget.Toast;
-
-import com.example.ponderwonder.MainActivity;
-import com.example.ponderwonder.Today;
-
-import java.io.BufferedInputStream;
 import java.io.BufferedReader;
-import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.Reader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
@@ -22,6 +14,11 @@ public class FetchWeather {
 
     private static final String OPEN_WEATHER_MAP_API = "0bd127354646aa1dfbeb1db2892f291d";
     static final String USER_AGENT = "Weather Notification (Linux; Android)";
+
+    public static boolean checkInternetStatus(Context context) {
+        return ((ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE))
+                .getActiveNetworkInfo() != null;
+    }
 
     public static String getWeatherResponse(Context context, String city){
         URL url;
@@ -63,7 +60,7 @@ public class FetchWeather {
             }
 
             rd.close();
-            Log.d("this", "This");
+            Log.d("FetchWeather", "Response is = " + response.toString());
             return response.toString();
         } catch (Exception e) {
             return null;
