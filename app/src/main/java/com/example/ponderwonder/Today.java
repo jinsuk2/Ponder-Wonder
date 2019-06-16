@@ -12,8 +12,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ScrollView;
+
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 
 public class Today extends Fragment {
+
+    private GoogleSignInAccount mGoogleSignInAccount;
 
     public Today() {
         // Required empty public constructor
@@ -34,9 +39,19 @@ public class Today extends Fragment {
                              Bundle savedInstanceState) {
 
         final NavController navController = Navigation.findNavController(super.getActivity(), R.id.mainNavigationFragment);
-        final View view = inflater.inflate(R.layout.fragment_today, container, false);
+        final View todayView = inflater.inflate(R.layout.fragment_today, container, false);
+        final Button button = todayView.findViewById(R.id.testButton);
+        final ScrollView scrollView = todayView.findViewById(R.id.today_container);
 
-        final Button button = view.findViewById(R.id.testButton);
+        // TODO: Implement Scrollable Today Screen
+//        scrollView.setOnScrollChangeListener(new View.OnScrollChangeListener() {
+//            @Override
+//            public void onScrollChange(View v, int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
+//                if (Math.abs(scrollX - oldScrollX) >= 10 || (Math.abs(scrollY - oldScrollY) >= 10)) {
+//                    Today.super.getActivity().getActionBar().hide();
+//                }
+//            }
+//        });
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -46,7 +61,7 @@ public class Today extends Fragment {
         });
 
         // Inflate the layout for this fragment
-        return view;
+        return todayView;
     }
 
 }
