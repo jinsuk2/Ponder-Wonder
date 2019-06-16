@@ -8,9 +8,13 @@ import java.util.Date;
  */
 public class Journal  {
 
+    /** Represents the thumbnailt of the journal. */
+    private String journalImgUrl;
+
     /** Represents the title of the journal. */
     private String journalTitle;
 
+    //TODO: Implement calendar date picker
     /** Represents the date of the journal. */
     private Date JournalDate;
 
@@ -19,12 +23,23 @@ public class Journal  {
 
     /**
      * Constructor.
+     * @param imgUrl image url of the journal thumbnail.
      * @param title title of the journal.
      * @param content content of the journal.
      */
-    public Journal(String title, String content) {
+    public Journal(String imgUrl, String title, String content) {
+        this.journalImgUrl = imgUrl;
         this.journalTitle = title;
         this.journalContent = content;
+    }
+
+
+    public String getJournalImgUrl() {
+        return journalImgUrl;
+    }
+
+    public void setJournalImgUrl(String journalImgUrl) {
+        this.journalImgUrl = journalImgUrl;
     }
 
     /**

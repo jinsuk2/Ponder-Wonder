@@ -8,12 +8,6 @@
     tools:context=".journal.JournalView">
 
     <!-- TODO: Update blank fragment layout -->
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Journal page"
-        app:layout_constraintTop_toTopOf="parent"/>
     
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/journal_rv"
