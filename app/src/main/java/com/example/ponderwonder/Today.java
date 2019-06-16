@@ -26,6 +26,7 @@ public class Today extends Fragment {
 
     public static Today newInstance() {
         Today fragment = new Today();
+        Bundle args = new Bundle();
         return fragment;
     }
 
