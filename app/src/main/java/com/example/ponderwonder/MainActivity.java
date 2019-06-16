@@ -12,6 +12,8 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 import android.os.Bundle;
 import android.view.MenuItem;
+
+import com.example.ponderwonder.journal.JournalView;
 import com.example.ponderwonder.schedule.SchedulesView;
 import com.google.android.material.navigation.NavigationView;
 import java.util.HashSet;
@@ -74,7 +76,7 @@ implements NavigationView.OnNavigationItemSelectedListener {
 
         switch (screenId) {
             case R.id.journal:
-                fragment = new Journal();
+                fragment = new JournalView();
                 break;
             case R.id.schedules:
                 fragment = new SchedulesView();
