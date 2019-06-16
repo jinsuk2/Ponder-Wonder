@@ -4,8 +4,9 @@
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     
-    <ImageView
+    <TextView
         android:id="@+id/journal_img"
+        android:text="test"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_margin="5dp"

@@ -37,6 +37,7 @@ public class JournalAdapter extends RecyclerView.Adapter<JournalAdapter.JournalV
 
         View mView = LayoutInflater.from(parent.getContext()).inflate(R.layout.fragment_journal_view, parent, false);
         JournalViewHolder journalViewHolder = new JournalViewHolder(mView);
+
         return journalViewHolder;
     }
 

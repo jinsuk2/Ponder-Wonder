@@ -10,7 +10,7 @@ import java.util.Date;
  */
 public class Journal  {
 
-    /** Represents the thumbnailt of the journal. */
+    /** Represents the thumbnail of the journal. */
     private String journalImgUrl;
 
     /** Represents the title of the journal. */
