@@ -11,6 +11,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.example.ponderwonder.R;
 
 import org.w3c.dom.Text;
@@ -44,10 +45,13 @@ public class JournalAdapter extends RecyclerView.Adapter<JournalAdapter.JournalV
     @Override
     public void onBindViewHolder(@NonNull JournalViewHolder holder, int position) {
         Journal journal = journalList.get(position);
-//        holder.journalImg.setImageResource();
+
+        // Set text for title and content
         holder.journalTitle.setText(journal.getJournalTitle());
         holder.journalContent.setText(journal.getJournalContent());
 
+        // Display image from url using Glide
+//        Glide.with(mContext).load(journal.getJournalImgUrl()).into(holder.journalImg);
     }
 
     @Override
