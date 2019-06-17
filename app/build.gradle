@@ -1,11 +1,12 @@
 apply plugin: 'com.android.application'
 apply plugin: 'com.amazonaws.appsync'
+apply plugin: "androidx.navigation.safeargs"
 
 android {
     compileSdkVersion 28
     defaultConfig {
         applicationId "com.example.ponderwonder"
-        minSdkVersion 28
+        minSdkVersion 24
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"
@@ -27,14 +28,20 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.2.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
-    implementation 'androidx.navigation:navigation-fragment:2.0.0'
-    implementation 'androidx.navigation:navigation-ui:2.0.0'
+
+    // Navigation
+    def nav_version = "2.1.0-alpha05"
+
+    implementation "androidx.navigation:navigation-fragment:$nav_version"
+    implementation "androidx.navigation:navigation-ui:$nav_version"
+
+    implementation 'com.github.bumptech.glide:glide:4.3.1'
 
     //AWS
     //Base SDK
-    implementation 'com.amazonaws:aws-android-sdk-core:2.13.+'
+    implementation 'com.amazonaws:aws-android-sdk-core:2.13.6'
     //AppSync SDK
-    implementation 'com.amazonaws:aws-android-sdk-appsync:2.8.+'
+    implementation 'com.amazonaws:aws-android-sdk-appsync:2.8.3'
     //Mobile Client for init the SDK
     implementation('com.amazonaws:aws-android-sdk-mobile-client:2.8.+@aar') { transitive = true }
     // Cognito UserPools for SignIn
@@ -45,6 +52,6 @@ dependencies {
     implementation 'org.eclipse.paho:org.eclipse.paho.client.mqttv3:1.2.0'
     implementation 'org.eclipse.paho:org.eclipse.paho.android.service:1.1.1'
 
-    //Google Signin
+    //Google SignIn
     implementation 'com.google.android.gms:play-services-auth:16.0.1'
 }
