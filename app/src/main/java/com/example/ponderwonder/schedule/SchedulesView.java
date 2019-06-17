@@ -4,6 +4,8 @@ import android.content.Context;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -13,6 +15,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.ponderwonder.R;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -62,14 +65,24 @@ public class SchedulesView extends Fragment {
         GridLayoutManager mGridLayoutManager = new GridLayoutManager(getActivity(), 2);
         mRecyclerView.setLayoutManager(mGridLayoutManager);
 
+        final FloatingActionButton createButton = view.findViewById(R.id.create_schedule_btn);
+        final NavController navController = Navigation.findNavController(super.getActivity(),R.id.mainNavigationFragment);
+
+        createButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                navController.navigate(R.id.create_schedule);
+            }
+        });
+
         mScheduleList = new ArrayList<>();
 
         // obtain list from db
         // TODO: currently using dummy cards
-        for (int i = 0; i< 20; i++) {
-            mSchedule = new Schedule("test", "testDesc");
-            mScheduleList.add(mSchedule);
-        }
+//        for (int i = 0; i< 20; i++) {
+//            mSchedule = new Schedule("test", "testDesc");
+//            mScheduleList.add(mSchedule);
+//        }
 
         if (!mScheduleList.isEmpty()) {
             noScheduleText.setVisibility(View.INVISIBLE);
