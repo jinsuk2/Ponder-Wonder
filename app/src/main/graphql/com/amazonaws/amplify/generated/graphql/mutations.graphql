@@ -20,30 +20,6 @@ mutation DeleteUser($input: DeleteUserInput!) {
     userName
   }
 }
-mutation CreateSchedule($input: CreateScheduleInput!) {
-  createSchedule(input: $input) {
-    scheduleId
-    scheduleName
-    scheduleStartDate
-    scheduleEndDate
-  }
-}
-mutation UpdateSchedule($input: UpdateScheduleInput!) {
-  updateSchedule(input: $input) {
-    scheduleId
-    scheduleName
-    scheduleStartDate
-    scheduleEndDate
-  }
-}
-mutation DeleteSchedule($input: DeleteScheduleInput!) {
-  deleteSchedule(input: $input) {
-    scheduleId
-    scheduleName
-    scheduleStartDate
-    scheduleEndDate
-  }
-}
 mutation CreateJournalEntry($input: CreateJournalEntryInput!) {
   createJournalEntry(input: $input) {
     journalDate
@@ -90,5 +66,29 @@ mutation DeleteTodo($input: DeleteTodoInput!) {
     todoId
     todoDescription
     todoIsComplete
+  }
+}
+mutation CreateSchedule($input: CreateScheduleInput!) {
+  createSchedule(input: $input) {
+    scheduleId
+    scheduleName
+    scheduleStartDate
+    scheduleEndDate
+  }
+}
+mutation UpdateSchedule($input: UpdateScheduleInput!) {
+  updateSchedule(input: $input) {
+    scheduleId
+    scheduleName
+    scheduleStartDate
+    scheduleEndDate
+  }
+}
+mutation DeleteSchedule($input: DeleteScheduleInput!) {
+  deleteSchedule(input: $input) {
+    scheduleId
+    scheduleName
+    scheduleStartDate
+    scheduleEndDate
   }
 }
