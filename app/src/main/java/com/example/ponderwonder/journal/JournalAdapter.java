@@ -1,7 +1,6 @@
 package com.example.ponderwonder.journal;
 
 import android.content.Context;
-import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,9 +13,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.example.ponderwonder.R;
 
-import org.w3c.dom.Text;
-
-import java.util.ArrayList;
 import java.util.List;
 
 
@@ -29,8 +25,8 @@ public class JournalAdapter extends RecyclerView.Adapter<JournalAdapter.JournalV
     private List<Journal> journalList;
 
     public JournalAdapter(Context context, List<Journal> jList){
-        mContext = context;
-        journalList = jList;
+        this.mContext = context;
+        this.journalList = jList;
     }
 
     @Override
@@ -51,7 +47,11 @@ public class JournalAdapter extends RecyclerView.Adapter<JournalAdapter.JournalV
         holder.journalContent.setText(journal.getJournalContent());
 
         // Display image from url using Glide
-//        Glide.with(mContext).load(journal.getJournalImgUrl()).into(holder.journalImg);
+        Glide.with(mContext)
+                .load(journal.getJournalImgUrl())
+                .placeholder(R.drawable.placeholder)
+                .into(holder.journalImg);
+
     }
 
     @Override
