@@ -1,151 +1,94 @@
 # this is an auto generated file. This will be overwritten
-mutation CreateBlog($input: CreateBlogInput!) {
-  createBlog(input: $input) {
-    id
-    name
-    posts {
-      items {
-        id
-        title
-      }
-      nextToken
-    }
+mutation CreateUser($input: CreateUserInput!) {
+  createUser(input: $input) {
+    userEmail
+    userId
+    userName
   }
 }
-mutation UpdateBlog($input: UpdateBlogInput!) {
-  updateBlog(input: $input) {
-    id
-    name
-    posts {
-      items {
-        id
-        title
-      }
-      nextToken
-    }
+mutation UpdateUser($input: UpdateUserInput!) {
+  updateUser(input: $input) {
+    userEmail
+    userId
+    userName
   }
 }
-mutation DeleteBlog($input: DeleteBlogInput!) {
-  deleteBlog(input: $input) {
-    id
-    name
-    posts {
-      items {
-        id
-        title
-      }
-      nextToken
-    }
+mutation DeleteUser($input: DeleteUserInput!) {
+  deleteUser(input: $input) {
+    userEmail
+    userId
+    userName
   }
 }
-mutation CreatePost($input: CreatePostInput!) {
-  createPost(input: $input) {
-    id
-    title
-    blog {
-      id
-      name
-      posts {
-        nextToken
-      }
-    }
-    comments {
-      items {
-        id
-        content
-      }
-      nextToken
-    }
+mutation CreateSchedule($input: CreateScheduleInput!) {
+  createSchedule(input: $input) {
+    scheduleId
+    scheduleName
+    scheduleStartDate
+    scheduleEndDate
   }
 }
-mutation UpdatePost($input: UpdatePostInput!) {
-  updatePost(input: $input) {
-    id
-    title
-    blog {
-      id
-      name
-      posts {
-        nextToken
-      }
-    }
-    comments {
-      items {
-        id
-        content
-      }
-      nextToken
-    }
+mutation UpdateSchedule($input: UpdateScheduleInput!) {
+  updateSchedule(input: $input) {
+    scheduleId
+    scheduleName
+    scheduleStartDate
+    scheduleEndDate
   }
 }
-mutation DeletePost($input: DeletePostInput!) {
-  deletePost(input: $input) {
-    id
-    title
-    blog {
-      id
-      name
-      posts {
-        nextToken
-      }
-    }
-    comments {
-      items {
-        id
-        content
-      }
-      nextToken
-    }
+mutation DeleteSchedule($input: DeleteScheduleInput!) {
+  deleteSchedule(input: $input) {
+    scheduleId
+    scheduleName
+    scheduleStartDate
+    scheduleEndDate
   }
 }
-mutation CreateComment($input: CreateCommentInput!) {
-  createComment(input: $input) {
-    id
-    content
-    post {
-      id
-      title
-      blog {
-        id
-        name
-      }
-      comments {
-        nextToken
-      }
-    }
+mutation CreateJournalEntry($input: CreateJournalEntryInput!) {
+  createJournalEntry(input: $input) {
+    journalDate
+    journalEntryId
+    journalContent
+    journalLocation
   }
 }
-mutation UpdateComment($input: UpdateCommentInput!) {
-  updateComment(input: $input) {
-    id
-    content
-    post {
-      id
-      title
-      blog {
-        id
-        name
-      }
-      comments {
-        nextToken
-      }
-    }
+mutation UpdateJournalEntry($input: UpdateJournalEntryInput!) {
+  updateJournalEntry(input: $input) {
+    journalDate
+    journalEntryId
+    journalContent
+    journalLocation
   }
 }
-mutation DeleteComment($input: DeleteCommentInput!) {
-  deleteComment(input: $input) {
-    id
-    content
-    post {
-      id
-      title
-      blog {
-        id
-        name
-      }
-      comments {
-        nextToken
-      }
-    }
+mutation DeleteJournalEntry($input: DeleteJournalEntryInput!) {
+  deleteJournalEntry(input: $input) {
+    journalDate
+    journalEntryId
+    journalContent
+    journalLocation
+  }
+}
+mutation CreateTodo($input: CreateTodoInput!) {
+  createTodo(input: $input) {
+    todoDate
+    todoId
+    todoDescription
+    todoIsComplete
+  }
+}
+mutation UpdateTodo($input: UpdateTodoInput!) {
+  updateTodo(input: $input) {
+    todoDate
+    todoId
+    todoDescription
+    todoIsComplete
+  }
+}
+mutation DeleteTodo($input: DeleteTodoInput!) {
+  deleteTodo(input: $input) {
+    todoDate
+    todoId
+    todoDescription
+    todoIsComplete
   }
 }

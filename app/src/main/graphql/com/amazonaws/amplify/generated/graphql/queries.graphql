@@ -1,103 +1,90 @@
 # this is an auto generated file. This will be overwritten
-query GetBlog($id: ID!) {
-  getBlog(id: $id) {
-    id
-    name
-    posts {
-      items {
-        id
-        title
-      }
-      nextToken
-    }
+query GetUser($userId: String!, $userEmail: String!) {
+  getUser(userId: $userId, userEmail: $userEmail) {
+    userEmail
+    userId
+    userName
   }
 }
-query ListBlogs(
-  $filter: ModelBlogFilterInput
+query ListUsers(
+  $filter: TableUserFilterInput
   $limit: Int
   $nextToken: String
 ) {
-  listBlogs(filter: $filter, limit: $limit, nextToken: $nextToken) {
+  listUsers(filter: $filter, limit: $limit, nextToken: $nextToken) {
     items {
-      id
-      name
-      posts {
-        nextToken
-      }
+      userEmail
+      userId
+      userName
     }
     nextToken
   }
 }
-query GetPost($id: ID!) {
-  getPost(id: $id) {
-    id
-    title
-    blog {
-      id
-      name
-      posts {
-        nextToken
-      }
-    }
-    comments {
-      items {
-        id
-        content
-      }
-      nextToken
-    }
+query GetSchedule($scheduleId: String!, $scheduleName: String!) {
+  getSchedule(scheduleId: $scheduleId, scheduleName: $scheduleName) {
+    scheduleId
+    scheduleName
+    scheduleStartDate
+    scheduleEndDate
   }
 }
-query ListPosts(
-  $filter: ModelPostFilterInput
+query ListSchedules(
+  $filter: TableScheduleFilterInput
   $limit: Int
   $nextToken: String
 ) {
-  listPosts(filter: $filter, limit: $limit, nextToken: $nextToken) {
+  listSchedules(filter: $filter, limit: $limit, nextToken: $nextToken) {
     items {
-      id
-      title
-      blog {
-        id
-        name
-      }
-      comments {
-        nextToken
-      }
+      scheduleId
+      scheduleName
+      scheduleStartDate
+      scheduleEndDate
     }
     nextToken
   }
 }
-query GetComment($id: ID!) {
-  getComment(id: $id) {
-    id
-    content
-    post {
-      id
-      title
-      blog {
-        id
-        name
-      }
-      comments {
-        nextToken
-      }
-    }
+query GetJournalEntry($journalEntryId: String!, $journalDate: String!) {
+  getJournalEntry(journalEntryId: $journalEntryId, journalDate: $journalDate) {
+    journalDate
+    journalEntryId
+    journalContent
+    journalLocation
   }
 }
-query ListComments(
-  $filter: ModelCommentFilterInput
+query ListJournalEntries(
+  $filter: TableJournalEntryFilterInput
   $limit: Int
   $nextToken: String
 ) {
-  listComments(filter: $filter, limit: $limit, nextToken: $nextToken) {
+  listJournalEntries(filter: $filter, limit: $limit, nextToken: $nextToken) {
     items {
-      id
-      content
-      post {
-        id
-        title
-      }
+      journalDate
+      journalEntryId
+      journalContent
+      journalLocation
+    }
+    nextToken
+  }
+}
+query GetTodo($todoId: String!, $todoDate: String!) {
+  getTodo(todoId: $todoId, todoDate: $todoDate) {
+    todoDate
+    todoId
+    todoDescription
+    todoIsComplete
+  }
+}
+query ListTodos(
+  $filter: TableTodoFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listTodos(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      todoDate
+      todoId
+      todoDescription
+      todoIsComplete
     }
     nextToken
   }
