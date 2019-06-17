@@ -17,5 +17,24 @@
                 }
             }
         }
+    },
+    "newdev": {
+        "awscloudformation": {
+            "AuthRoleName": "ponderwonder-newdev-20190616225412-authRole",
+            "UnauthRoleArn": "arn:aws:iam::973706607165:role/ponderwonder-newdev-20190616225412-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::973706607165:role/ponderwonder-newdev-20190616225412-authRole",
+            "Region": "us-west-2",
+            "DeploymentBucketName": "ponderwonder-newdev-20190616225412-deployment",
+            "UnauthRoleName": "ponderwonder-newdev-20190616225412-unauthRole",
+            "StackName": "ponderwonder-newdev-20190616225412",
+            "StackId": "arn:aws:cloudformation:us-west-2:973706607165:stack/ponderwonder-newdev-20190616225412/5705abd0-90c4-11e9-8369-061dee6f5b3e"
+        },
+        "categories": {
+            "auth": {
+                "ponderwonder3ef49dc6": {
+                    "hostedUIProviderCreds": "[{\"ProviderName\":\"Google\",\"client_id\":\"898731589615-48i2t5k2b68069c760hi7bmibi8ahd00.apps.googleusercontent.com\",\"client_secret\":\"898731589615-48i2t5k2b68069c760hi7bmibi8ahd00.apps.googleusercontent.com\"}]"
+                }
+            }
+        }
     }
 }
