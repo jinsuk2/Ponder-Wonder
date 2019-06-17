@@ -4,13 +4,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".Schedules">
+    tools:context=".schedule.SchedulesView">
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
+        android:id="@+id/no_schedule_msg"
         android:layout_width="343dp"
         android:layout_height="583dp"
-        android:text="This is the Schedules Screen"
+        android:text="@string/no_schedules_message"
         android:textAlignment="center"
         android:textColor="#E91E63"
         android:textSize="30sp"
@@ -19,5 +20,13 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+    
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/schedule_recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="vertical">
+
+    </androidx.recyclerview.widget.RecyclerView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

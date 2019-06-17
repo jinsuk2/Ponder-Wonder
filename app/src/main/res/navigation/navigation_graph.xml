@@ -38,14 +38,14 @@
     <fragment
         android:id="@+id/schedules"
         android:label="@string/labelSchedules"
-        android:name="com.example.ponderwonder.Schedules"
+        android:name="com.example.ponderwonder.schedule.SchedulesView"
         tools:layout="@layout/fragment_schedules"
         />
 
     <fragment
         android:id="@+id/journal"
         android:label="@string/labelJournal"
-        android:name="com.example.ponderwonder.Journal"
+        android:name="com.example.ponderwonder.journal.JournalView"
         tools:layout="@layout/fragment_journal"
         >
 
@@ -62,7 +62,7 @@
     <fragment
         android:id="@+id/createJournal"
         android:label="@string/labelCreateJournal"
-        android:name="com.example.ponderwonder.CreateJournal"
+        android:name="com.example.ponderwonder.journal.CreateJournal"
         tools:layout="@layout/fragment_create_journal">
 
     </fragment>
