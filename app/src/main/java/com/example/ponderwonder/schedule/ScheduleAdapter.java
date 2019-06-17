@@ -5,7 +5,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.ponderwonder.R;
@@ -35,6 +37,14 @@ public class ScheduleAdapter  extends RecyclerView.Adapter< ScheduleViewHolder >
 //        holder.mImage.setImageResource(mFlowerList.get(position).getFlowerImage());
         holder.mTitle.setText(mScheduleList.get(position).getScheduleTitle());
 
+        holder.mCardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //TODO: when clicked, should navigate to Today screen of the selected scheudle's start date
+                Toast.makeText(mContext, "Test", Toast.LENGTH_SHORT).show();
+            }
+        });
+
     }
 
     @Override
@@ -45,10 +55,14 @@ public class ScheduleAdapter  extends RecyclerView.Adapter< ScheduleViewHolder >
 
 class ScheduleViewHolder extends RecyclerView.ViewHolder {
 
+    CardView mCardView;
     TextView mTitle;
+    TextView mStartDate;
+    TextView mEndDate;
 
     ScheduleViewHolder(View itemView) {
         super(itemView);
         mTitle = itemView.findViewById(R.id.schedule_card_title);
+        mCardView = itemView.findViewById(R.id.schedule_card);
     }
 }

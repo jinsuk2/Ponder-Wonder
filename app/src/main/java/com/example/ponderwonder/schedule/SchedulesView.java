@@ -4,6 +4,8 @@ import android.content.Context;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -13,6 +15,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.ponderwonder.R;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -61,6 +64,18 @@ public class SchedulesView extends Fragment {
         TextView noScheduleText = view.findViewById(R.id.no_schedule_msg);
         GridLayoutManager mGridLayoutManager = new GridLayoutManager(getActivity(), 2);
         mRecyclerView.setLayoutManager(mGridLayoutManager);
+
+        final FloatingActionButton createButton = view.findViewById(R.id.create_schedule_btn);
+        final NavController navController = Navigation.findNavController(super.getActivity(),R.id.mainNavigationFragment);
+
+        // Navigates to create journal fragment when clicked
+        createButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                navController.navigate(R.id.create_schedule);
+            }
+        });
+
 
         mScheduleList = new ArrayList<>();
 
