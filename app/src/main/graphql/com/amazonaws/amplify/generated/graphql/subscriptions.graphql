@@ -32,6 +32,60 @@ subscription OnDeleteUser(
     userName
   }
 }
+subscription OnCreateSchedule(
+  $scheduleId: String
+  $scheduleName: String
+  $scheduleStartDate: AWSDateTime
+  $scheduleEndDate: AWSDateTime
+) {
+  onCreateSchedule(
+    scheduleId: $scheduleId
+    scheduleName: $scheduleName
+    scheduleStartDate: $scheduleStartDate
+    scheduleEndDate: $scheduleEndDate
+  ) {
+    scheduleId
+    scheduleName
+    scheduleStartDate
+    scheduleEndDate
+  }
+}
+subscription OnUpdateSchedule(
+  $scheduleId: String
+  $scheduleName: String
+  $scheduleStartDate: AWSDateTime
+  $scheduleEndDate: AWSDateTime
+) {
+  onUpdateSchedule(
+    scheduleId: $scheduleId
+    scheduleName: $scheduleName
+    scheduleStartDate: $scheduleStartDate
+    scheduleEndDate: $scheduleEndDate
+  ) {
+    scheduleId
+    scheduleName
+    scheduleStartDate
+    scheduleEndDate
+  }
+}
+subscription OnDeleteSchedule(
+  $scheduleId: String
+  $scheduleName: String
+  $scheduleStartDate: AWSDateTime
+  $scheduleEndDate: AWSDateTime
+) {
+  onDeleteSchedule(
+    scheduleId: $scheduleId
+    scheduleName: $scheduleName
+    scheduleStartDate: $scheduleStartDate
+    scheduleEndDate: $scheduleEndDate
+  ) {
+    scheduleId
+    scheduleName
+    scheduleStartDate
+    scheduleEndDate
+  }
+}
 subscription OnCreateJournalEntry(
   $journalDate: String
   $journalEntryId: String
@@ -138,59 +192,5 @@ subscription OnDeleteTodo(
     todoId
     todoDescription
     todoIsComplete
-  }
-}
-subscription OnCreateSchedule(
-  $scheduleId: String
-  $scheduleName: String
-  $scheduleStartDate: AWSDateTime
-  $scheduleEndDate: AWSDateTime
-) {
-  onCreateSchedule(
-    scheduleId: $scheduleId
-    scheduleName: $scheduleName
-    scheduleStartDate: $scheduleStartDate
-    scheduleEndDate: $scheduleEndDate
-  ) {
-    scheduleId
-    scheduleName
-    scheduleStartDate
-    scheduleEndDate
-  }
-}
-subscription OnUpdateSchedule(
-  $scheduleId: String
-  $scheduleName: String
-  $scheduleStartDate: AWSDateTime
-  $scheduleEndDate: AWSDateTime
-) {
-  onUpdateSchedule(
-    scheduleId: $scheduleId
-    scheduleName: $scheduleName
-    scheduleStartDate: $scheduleStartDate
-    scheduleEndDate: $scheduleEndDate
-  ) {
-    scheduleId
-    scheduleName
-    scheduleStartDate
-    scheduleEndDate
-  }
-}
-subscription OnDeleteSchedule(
-  $scheduleId: String
-  $scheduleName: String
-  $scheduleStartDate: AWSDateTime
-  $scheduleEndDate: AWSDateTime
-) {
-  onDeleteSchedule(
-    scheduleId: $scheduleId
-    scheduleName: $scheduleName
-    scheduleStartDate: $scheduleStartDate
-    scheduleEndDate: $scheduleEndDate
-  ) {
-    scheduleId
-    scheduleName
-    scheduleStartDate
-    scheduleEndDate
   }
 }

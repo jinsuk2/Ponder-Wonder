@@ -20,6 +20,29 @@ query ListUsers(
     nextToken
   }
 }
+query GetSchedule($scheduleId: String!, $scheduleName: String!) {
+  getSchedule(scheduleId: $scheduleId, scheduleName: $scheduleName) {
+    scheduleId
+    scheduleName
+    scheduleStartDate
+    scheduleEndDate
+  }
+}
+query ListSchedules(
+  $filter: TableScheduleFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listSchedules(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      scheduleId
+      scheduleName
+      scheduleStartDate
+      scheduleEndDate
+    }
+    nextToken
+  }
+}
 query GetJournalEntry($journalEntryId: String!, $journalDate: String!) {
   getJournalEntry(journalEntryId: $journalEntryId, journalDate: $journalDate) {
     journalDate
@@ -62,29 +85,6 @@ query ListTodos(
       todoId
       todoDescription
       todoIsComplete
-    }
-    nextToken
-  }
-}
-query GetSchedule($scheduleId: String!, $scheduleName: String!) {
-  getSchedule(scheduleId: $scheduleId, scheduleName: $scheduleName) {
-    scheduleId
-    scheduleName
-    scheduleStartDate
-    scheduleEndDate
-  }
-}
-query ListSchedules(
-  $filter: TableScheduleFilterInput
-  $limit: Int
-  $nextToken: String
-) {
-  listSchedules(filter: $filter, limit: $limit, nextToken: $nextToken) {
-    items {
-      scheduleId
-      scheduleName
-      scheduleStartDate
-      scheduleEndDate
     }
     nextToken
   }
