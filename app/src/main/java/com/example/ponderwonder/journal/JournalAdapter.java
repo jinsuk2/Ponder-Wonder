@@ -47,6 +47,7 @@ public class JournalAdapter extends RecyclerView.Adapter<JournalAdapter.JournalV
 //        holder.journalImg.setImageResource();
         holder.journalTitle.setText(journal.getJournalTitle());
         holder.journalContent.setText(journal.getJournalContent());
+
     }
 
     @Override
