@@ -68,7 +68,6 @@ public class SchedulesView extends Fragment {
         final FloatingActionButton createButton = view.findViewById(R.id.create_schedule_btn);
         final NavController navController = Navigation.findNavController(super.getActivity(),R.id.mainNavigationFragment);
 
-        // Navigates to create journal fragment when clicked
         createButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -76,15 +75,14 @@ public class SchedulesView extends Fragment {
             }
         });
 
-
         mScheduleList = new ArrayList<>();
 
         // obtain list from db
         // TODO: currently using dummy cards
-        for (int i = 0; i< 20; i++) {
-            mSchedule = new Schedule("test", "testDesc");
-            mScheduleList.add(mSchedule);
-        }
+//        for (int i = 0; i< 20; i++) {
+//            mSchedule = new Schedule("test", "testDesc");
+//            mScheduleList.add(mSchedule);
+//        }
 
         if (!mScheduleList.isEmpty()) {
             noScheduleText.setVisibility(View.INVISIBLE);
