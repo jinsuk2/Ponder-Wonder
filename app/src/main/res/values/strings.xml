@@ -8,7 +8,10 @@
     <string name="labelJournal">Journal</string>
     <string name="labelCreateJournal">Create Journal</string>
 
-    <string name="no_schedules_message">This is the Schedules Screen</string>
+    <string name="no_schedules_msg">This is the Schedules Screen</string>
+    <string name="create_schedule_msg">Create Schedule</string>
+    <string name="empty_input_msg">Cannot be empty</string>
+
 
     <string name="com_auth0_client_id">YOUR_CLIENT_ID</string>
     <string name="com_auth0_domain">YOUR_DOMAIN</string>

@@ -43,6 +43,12 @@
         />
 
     <fragment
+        android:id="@+id/create_schedule"
+        android:label="@string/create_schedule_msg"
+        android:name="com.example.ponderwonder.schedule.ScheduleDetails"
+        tools:layout="@layout/fragment_schedule_details"/>
+
+    <fragment
         android:id="@+id/journal"
         android:label="@string/labelJournal"
         android:name="com.example.ponderwonder.journal.JournalView"
