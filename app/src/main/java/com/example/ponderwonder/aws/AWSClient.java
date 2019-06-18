@@ -2,12 +2,8 @@ package com.example.ponderwonder.aws;
 
 import android.content.Context;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import com.amazonaws.mobile.client.AWSMobileClient;
 import com.amazonaws.mobile.config.AWSConfiguration;
 import com.amazonaws.mobileconnectors.appsync.AWSAppSyncClient;
-import com.example.ponderwonder.MainActivity;
 
 public class AWSClient {
     private static volatile AWSAppSyncClient client;
