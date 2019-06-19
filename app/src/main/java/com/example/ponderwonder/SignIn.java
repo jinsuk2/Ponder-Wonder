@@ -74,19 +74,19 @@ public class SignIn extends Fragment {
 
         // TODO: Current Error is because AWSMoblieClient's error is regarded as duplicate coz of onError at the bottom for googlesignin
         // Cognito Pool Register
-//        AWSMobileClient awsMobileClient = AWSMobileClient.getInstance();
-//        awsMobileClient.federatedSignIn(IdentityProvider.GOOGLE.toString(), "GOOGLE_TOKEN_HERE", new Callback<UserStateDetails>() {
-//            @Override
-//            public void onResult(final UserStateDetails result) {
-////                Log.i(TAG, "Signed In!" + result.getUserState().name());
-//            }
-//
-//            @Override
-//            public void onError(Exception e) {
-//                Log.e(TAG, "sign-in error", e);
-////                Toast.makeText(SignIn.super.getContext(), "Error!", Toast.LENGTH_SHORT).show();
-//            }
-//        });
+        AWSMobileClient awsMobileClient = AWSMobileClient.getInstance();
+        awsMobileClient.federatedSignIn(IdentityProvider.GOOGLE.toString(), "GOOGLE_TOKEN_HERE", new Callback<UserStateDetails>() {
+            @Override
+            public void onResult(final UserStateDetails result) {
+//                Log.i(TAG, "Signed In!" + result.getUserState().name());
+            }
+
+            @Override
+            public void onError(Exception e) {
+                Log.e(TAG, "sign-in error", e);
+//                Toast.makeText(SignIn.super.getContext(), "Error!", Toast.LENGTH_SHORT).show();
+            }
+        });
 
         // Variables Required
         mSignInView = inflater.inflate(R.layout.fragment_sign_in, container, false);

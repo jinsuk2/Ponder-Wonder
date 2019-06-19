@@ -11,6 +11,7 @@ import com.amazonaws.mobileconnectors.appsync.AWSAppSyncClient;
 import com.amazonaws.mobileconnectors.appsync.AppSyncSubscriptionCall;
 import com.amazonaws.mobileconnectors.appsync.fetcher.AppSyncResponseFetchers;
 import com.apollographql.apollo.GraphQLCall;
+import com.apollographql.apollo.api.Query;
 import com.apollographql.apollo.api.Response;
 import com.apollographql.apollo.exception.ApolloException;
 
@@ -44,8 +45,12 @@ public class AWSClient {
     // Sample Query
     // Dont delete this
     public void query(AWSAppSyncClient client) {
+        // Insert the wanted query from generated schema.
+        // Format is NAMEQuery.builder().build()
         client.query(ListTodosQuery.builder().build())
                 .responseFetcher(AppSyncResponseFetchers.CACHE_AND_NETWORK)
+
+                // Put the Callback function here
                 .enqueue(listTodoQueryCallback);
     }
 
@@ -67,12 +72,17 @@ public class AWSClient {
     // Sample Mutation
     // Dont delete this
     public void mutation(){
+
+        // Create an Input you would like mutate.
+        // You can find the list of mutations in ./app/src/main/graphql/..../
         CreateTodoInput createTodoInput = CreateTodoInput.builder().
+                // Parameters
                 todoDate("Sample").
                 todoDescription("Testing description").
                 todoIsComplete(false).
                 build();
 
+        // Perform mutation by building mutation with input and enqueue callback
         mAWSAppSyncClient.mutate(CreateTodoMutation.builder().input(createTodoInput).build())
                 .enqueue(mutationCallback);
     }
@@ -94,6 +104,8 @@ public class AWSClient {
     // Sample Subscription
     // Don't delete this
     private void subscribe(){
+
+        // Create Subscription. You can find the list of subscriptions in same folder
         OnCreateTodoSubscription subscription = OnCreateTodoSubscription.builder().build();
         subscriptionWatcher = mAWSAppSyncClient.subscribe(subscription);
         subscriptionWatcher.execute(subCallback);
