@@ -6,7 +6,7 @@
 		}
 	},
 	"api": {
-		"PonderWonder-API": {
+		"PonderWonderAPI": {
 			"service": "AppSync",
 			"providerPlugin": "awscloudformation",
 			"output": {

@@ -1,5 +1,5 @@
 projects:
-  PonderWonder-API:
+  PonderWonderAPI:
     schemaPath: app\src\main\graphql\schema.json
     includes:
       - app\src\main\graphql\**\*.graphql
@@ -10,5 +10,3 @@ projects:
         codeGenTarget: ''
         generatedFileName: ''
         docsFilePath: app\src\main\graphql\com\amazonaws\amplify\generated\graphql
-        region: us-west-2
-        maxDepth: 2
