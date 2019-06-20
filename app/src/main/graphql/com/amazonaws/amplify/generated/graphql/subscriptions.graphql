@@ -1,196 +1,91 @@
 # this is an auto generated file. This will be overwritten
+subscription OnCreateUser($userEmail: String, $userId: ID) {
+  onCreateUser(userEmail: $userEmail, userId: $userId) {
+    userEmail
+    userId
+  }
+}
+subscription OnUpdateUser($userEmail: String, $userId: ID) {
+  onUpdateUser(userEmail: $userEmail, userId: $userId) {
+    userEmail
+    userId
+  }
+}
+subscription OnDeleteUser($userEmail: String, $userId: ID) {
+  onDeleteUser(userEmail: $userEmail, userId: $userId) {
+    userEmail
+    userId
+  }
+}
+subscription OnCreateTodo($todoDate: String, $todoId: String) {
+  onCreateTodo(todoDate: $todoDate, todoId: $todoId) {
+    todoDate
+    todoId
+  }
+}
+subscription OnUpdateTodo($todoDate: String, $todoId: String) {
+  onUpdateTodo(todoDate: $todoDate, todoId: $todoId) {
+    todoDate
+    todoId
+  }
+}
+subscription OnDeleteTodo($todoDate: String, $todoId: String) {
+  onDeleteTodo(todoDate: $todoDate, todoId: $todoId) {
+    todoDate
+    todoId
+  }
+}
 subscription OnCreateJournalEntry(
-  $journalContent: String
   $journalDate: String
   $journalEntryId: String
-  $journalLocation: String
 ) {
   onCreateJournalEntry(
-    journalContent: $journalContent
     journalDate: $journalDate
     journalEntryId: $journalEntryId
-    journalLocation: $journalLocation
   ) {
-    journalContent
     journalDate
     journalEntryId
-    journalLocation
-  }
-}
-subscription OnCreateSchedule(
-  $scheduleEndDate: AWSDateTime
-  $scheduleId: String
-  $scheduleName: String
-  $scheduleStartDate: AWSDateTime
-) {
-  onCreateSchedule(
-    scheduleEndDate: $scheduleEndDate
-    scheduleId: $scheduleId
-    scheduleName: $scheduleName
-    scheduleStartDate: $scheduleStartDate
-  ) {
-    scheduleEndDate
-    scheduleId
-    scheduleName
-    scheduleStartDate
-  }
-}
-subscription OnCreateTodo(
-  $todoDate: String
-  $todoDescription: String
-  $todoId: String
-  $todoIsComplete: Boolean
-) {
-  onCreateTodo(
-    todoDate: $todoDate
-    todoDescription: $todoDescription
-    todoId: $todoId
-    todoIsComplete: $todoIsComplete
-  ) {
-    todoDate
-    todoDescription
-    todoId
-    todoIsComplete
-  }
-}
-subscription OnCreateUser(
-  $userEmail: String
-  $userId: String
-  $userName: String
-) {
-  onCreateUser(userEmail: $userEmail, userId: $userId, userName: $userName) {
-    userEmail
-    userId
-    userName
-  }
-}
-subscription OnDeleteJournalEntry(
-  $journalContent: String
-  $journalDate: String
-  $journalEntryId: String
-  $journalLocation: String
-) {
-  onDeleteJournalEntry(
-    journalContent: $journalContent
-    journalDate: $journalDate
-    journalEntryId: $journalEntryId
-    journalLocation: $journalLocation
-  ) {
-    journalContent
-    journalDate
-    journalEntryId
-    journalLocation
-  }
-}
-subscription OnDeleteSchedule(
-  $scheduleEndDate: AWSDateTime
-  $scheduleId: String
-  $scheduleName: String
-  $scheduleStartDate: AWSDateTime
-) {
-  onDeleteSchedule(
-    scheduleEndDate: $scheduleEndDate
-    scheduleId: $scheduleId
-    scheduleName: $scheduleName
-    scheduleStartDate: $scheduleStartDate
-  ) {
-    scheduleEndDate
-    scheduleId
-    scheduleName
-    scheduleStartDate
-  }
-}
-subscription OnDeleteTodo(
-  $todoDate: String
-  $todoDescription: String
-  $todoId: String
-  $todoIsComplete: Boolean
-) {
-  onDeleteTodo(
-    todoDate: $todoDate
-    todoDescription: $todoDescription
-    todoId: $todoId
-    todoIsComplete: $todoIsComplete
-  ) {
-    todoDate
-    todoDescription
-    todoId
-    todoIsComplete
-  }
-}
-subscription OnDeleteUser(
-  $userEmail: String
-  $userId: String
-  $userName: String
-) {
-  onDeleteUser(userEmail: $userEmail, userId: $userId, userName: $userName) {
-    userEmail
-    userId
-    userName
   }
 }
 subscription OnUpdateJournalEntry(
-  $journalContent: String
   $journalDate: String
   $journalEntryId: String
-  $journalLocation: String
 ) {
   onUpdateJournalEntry(
-    journalContent: $journalContent
     journalDate: $journalDate
     journalEntryId: $journalEntryId
-    journalLocation: $journalLocation
   ) {
-    journalContent
     journalDate
     journalEntryId
-    journalLocation
   }
 }
-subscription OnUpdateSchedule(
-  $scheduleEndDate: AWSDateTime
-  $scheduleId: String
-  $scheduleName: String
-  $scheduleStartDate: AWSDateTime
+subscription OnDeleteJournalEntry(
+  $journalDate: String
+  $journalEntryId: String
 ) {
-  onUpdateSchedule(
-    scheduleEndDate: $scheduleEndDate
-    scheduleId: $scheduleId
-    scheduleName: $scheduleName
-    scheduleStartDate: $scheduleStartDate
+  onDeleteJournalEntry(
+    journalDate: $journalDate
+    journalEntryId: $journalEntryId
   ) {
-    scheduleEndDate
+    journalDate
+    journalEntryId
+  }
+}
+subscription OnCreateSchedule($scheduleId: String, $scheduleName: String) {
+  onCreateSchedule(scheduleId: $scheduleId, scheduleName: $scheduleName) {
     scheduleId
     scheduleName
-    scheduleStartDate
   }
 }
-subscription OnUpdateTodo(
-  $todoDate: String
-  $todoDescription: String
-  $todoId: String
-  $todoIsComplete: Boolean
-) {
-  onUpdateTodo(
-    todoDate: $todoDate
-    todoDescription: $todoDescription
-    todoId: $todoId
-    todoIsComplete: $todoIsComplete
-  ) {
-    todoDate
-    todoDescription
-    todoId
-    todoIsComplete
+subscription OnUpdateSchedule($scheduleId: String, $scheduleName: String) {
+  onUpdateSchedule(scheduleId: $scheduleId, scheduleName: $scheduleName) {
+    scheduleId
+    scheduleName
   }
 }
-subscription OnUpdateUser(
-  $userEmail: String
-  $userId: String
-  $userName: String
-) {
-  onUpdateUser(userEmail: $userEmail, userId: $userId, userName: $userName) {
-    userEmail
-    userId
-    userName
+subscription OnDeleteSchedule($scheduleId: String, $scheduleName: String) {
+  onDeleteSchedule(scheduleId: $scheduleId, scheduleName: $scheduleName) {
+    scheduleId
+    scheduleName
   }
 }

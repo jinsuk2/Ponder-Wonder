@@ -2,8 +2,6 @@ package com.example.ponderwonder;
 
 import android.content.Context;
 import android.content.Intent;
-import android.content.res.Resources;
-import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -50,6 +48,7 @@ public class SignIn extends Fragment {
     private GoogleSignInOptions mGoogleSignInOptions;
     private GoogleSignInAccount mGoogleSignInAccount;
     private AWSConfiguration mAWSConfiguration;
+    private AWSMobileClient mAWSMobileClient;
 
 
     private View mSignInView;
@@ -74,6 +73,7 @@ public class SignIn extends Fragment {
 
         // TODO: Current Error is because AWSMoblieClient's error is regarded as duplicate coz of onError at the bottom for googlesignin
         // Cognito Pool Register
+
 //        AWSMobileClient awsMobileClient = AWSMobileClient.getInstance();
 //        awsMobileClient.federatedSignIn(IdentityProvider.GOOGLE.toString(), "GOOGLE_TOKEN_HERE", new Callback<UserStateDetails>() {
 //            @Override
@@ -85,6 +85,19 @@ public class SignIn extends Fragment {
 //            public void onError(Exception e) {
 //                Log.e(TAG, "sign-in error", e);
 ////                Toast.makeText(SignIn.super.getContext(), "Error!", Toast.LENGTH_SHORT).show();
+//            }
+//        });
+
+//        mAWSMobileClient = AWSMobileClient.getInstance();
+//        mAWSMobileClient.federatedSignIn(IdentityProvider.GOOGLE.toString(), "GOOGLE_TOKEN_HERE", new Callback<UserStateDetails>() {
+//            @Override
+//            public void onResult(final UserStateDetails result) {
+//                Log.i(TAG, "Signed In!" + result.getUserState().name());
+//            }
+//
+//            @Override
+//            public void onError(Exception e) {
+//                Log.e(TAG, "sign-in error", e);
 //            }
 //        });
 
@@ -112,6 +125,18 @@ public class SignIn extends Fragment {
         signInButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                mAWSMobileClient.federatedSignIn(IdentityProvider.GOOGLE.toString(), "GOOGLE_TOKEN_HERE", new Callback<UserStateDetails>() {
+                    @Override
+                    public void onResult(final UserStateDetails result) {
+                        Log.i(TAG, "Signed In!" + result.getUserState().name());
+                    }
+
+                    @Override
+                    public void onError(Exception e) {
+                        Log.e(TAG, "sign-in error", e);
+                    }
+                });
+
                 startActivityForResult(mGoogleSignInClient.getSignInIntent(), RC_SIGN_IN);
                 if ( mGoogleSignInAccount != null) {
                     userName.setText("Welcome Back! " + mGoogleSignInAccount.getEmail());

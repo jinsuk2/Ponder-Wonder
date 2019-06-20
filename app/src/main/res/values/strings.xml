@@ -22,6 +22,7 @@
 
     <string name="title">Title</string>
     <string name="description">Description</string>
+    <string name="sign_up">Sign Up</string>
 
 
 </resources>
