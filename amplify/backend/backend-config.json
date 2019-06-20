@@ -5,5 +5,13 @@
 			"providerPlugin": "awscloudformation"
 		}
 	},
-	"api": {}
+	"api": {
+		"ponderwondernewDevApi": {
+			"service": "AppSync",
+			"providerPlugin": "awscloudformation",
+			"output": {
+				"securityType": "API_KEY"
+			}
+		}
+	}
 }

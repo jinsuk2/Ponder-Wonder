@@ -1,46 +1,26 @@
 # this is an auto generated file. This will be overwritten
-query GetUser($userId: ID!, $userEmail: String!) {
-  getUser(userId: $userId, userEmail: $userEmail) {
-    userEmail
-    userId
+query GetJournalEntry($journalDate: String!, $journalEntryId: String!) {
+  getJournalEntry(journalDate: $journalDate, journalEntryId: $journalEntryId) {
+    journalDate
+    journalEntryId
   }
 }
-query ListUsers(
-  $filter: TableUserFilterInput
-  $limit: Int
-  $nextToken: String
-) {
-  listUsers(filter: $filter, limit: $limit, nextToken: $nextToken) {
-    items {
-      userEmail
-      userId
-    }
-    nextToken
+query GetSchedule($scheduleId: String!, $scheduleName: String!) {
+  getSchedule(scheduleId: $scheduleId, scheduleName: $scheduleName) {
+    scheduleId
+    scheduleName
   }
 }
-query GetTodo($todoId: String!, $todoDate: String!) {
-  getTodo(todoId: $todoId, todoDate: $todoDate) {
+query GetTodo($todoDate: String!, $todoId: String!) {
+  getTodo(todoDate: $todoDate, todoId: $todoId) {
     todoDate
     todoId
   }
 }
-query ListTodos(
-  $filter: TableTodoFilterInput
-  $limit: Int
-  $nextToken: String
-) {
-  listTodos(filter: $filter, limit: $limit, nextToken: $nextToken) {
-    items {
-      todoDate
-      todoId
-    }
-    nextToken
-  }
-}
-query GetJournalEntry($journalEntryId: String!, $journalDate: String!) {
-  getJournalEntry(journalEntryId: $journalEntryId, journalDate: $journalDate) {
-    journalDate
-    journalEntryId
+query GetUser($userEmail: String!, $userId: ID!) {
+  getUser(userEmail: $userEmail, userId: $userId) {
+    userEmail
+    userId
   }
 }
 query ListJournalEntries(
@@ -56,12 +36,6 @@ query ListJournalEntries(
     nextToken
   }
 }
-query GetSchedule($scheduleId: String!, $scheduleName: String!) {
-  getSchedule(scheduleId: $scheduleId, scheduleName: $scheduleName) {
-    scheduleId
-    scheduleName
-  }
-}
 query ListSchedules(
   $filter: TableScheduleFilterInput
   $limit: Int
@@ -71,6 +45,32 @@ query ListSchedules(
     items {
       scheduleId
       scheduleName
+    }
+    nextToken
+  }
+}
+query ListTodos(
+  $filter: TableTodoFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listTodos(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      todoDate
+      todoId
+    }
+    nextToken
+  }
+}
+query ListUsers(
+  $filter: TableUserFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listUsers(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      userEmail
+      userId
     }
     nextToken
   }
