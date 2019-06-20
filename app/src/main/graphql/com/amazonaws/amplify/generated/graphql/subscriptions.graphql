@@ -1,151 +1,196 @@
 # this is an auto generated file. This will be overwritten
-subscription OnCreateBlog {
-  onCreateBlog {
-    id
-    name
-    posts {
-      items {
-        id
-        title
-      }
-      nextToken
-    }
+subscription OnCreateJournalEntry(
+  $journalContent: String
+  $journalDate: String
+  $journalEntryId: String
+  $journalLocation: String
+) {
+  onCreateJournalEntry(
+    journalContent: $journalContent
+    journalDate: $journalDate
+    journalEntryId: $journalEntryId
+    journalLocation: $journalLocation
+  ) {
+    journalContent
+    journalDate
+    journalEntryId
+    journalLocation
   }
 }
-subscription OnUpdateBlog {
-  onUpdateBlog {
-    id
-    name
-    posts {
-      items {
-        id
-        title
-      }
-      nextToken
-    }
+subscription OnCreateSchedule(
+  $scheduleEndDate: AWSDateTime
+  $scheduleId: String
+  $scheduleName: String
+  $scheduleStartDate: AWSDateTime
+) {
+  onCreateSchedule(
+    scheduleEndDate: $scheduleEndDate
+    scheduleId: $scheduleId
+    scheduleName: $scheduleName
+    scheduleStartDate: $scheduleStartDate
+  ) {
+    scheduleEndDate
+    scheduleId
+    scheduleName
+    scheduleStartDate
   }
 }
-subscription OnDeleteBlog {
-  onDeleteBlog {
-    id
-    name
-    posts {
-      items {
-        id
-        title
-      }
-      nextToken
-    }
+subscription OnCreateTodo(
+  $todoDate: String
+  $todoDescription: String
+  $todoId: String
+  $todoIsComplete: Boolean
+) {
+  onCreateTodo(
+    todoDate: $todoDate
+    todoDescription: $todoDescription
+    todoId: $todoId
+    todoIsComplete: $todoIsComplete
+  ) {
+    todoDate
+    todoDescription
+    todoId
+    todoIsComplete
   }
 }
-subscription OnCreatePost {
-  onCreatePost {
-    id
-    title
-    blog {
-      id
-      name
-      posts {
-        nextToken
-      }
-    }
-    comments {
-      items {
-        id
-        content
-      }
-      nextToken
-    }
+subscription OnCreateUser(
+  $userEmail: String
+  $userId: String
+  $userName: String
+) {
+  onCreateUser(userEmail: $userEmail, userId: $userId, userName: $userName) {
+    userEmail
+    userId
+    userName
   }
 }
-subscription OnUpdatePost {
-  onUpdatePost {
-    id
-    title
-    blog {
-      id
-      name
-      posts {
-        nextToken
-      }
-    }
-    comments {
-      items {
-        id
-        content
-      }
-      nextToken
-    }
+subscription OnDeleteJournalEntry(
+  $journalContent: String
+  $journalDate: String
+  $journalEntryId: String
+  $journalLocation: String
+) {
+  onDeleteJournalEntry(
+    journalContent: $journalContent
+    journalDate: $journalDate
+    journalEntryId: $journalEntryId
+    journalLocation: $journalLocation
+  ) {
+    journalContent
+    journalDate
+    journalEntryId
+    journalLocation
   }
 }
-subscription OnDeletePost {
-  onDeletePost {
-    id
-    title
-    blog {
-      id
-      name
-      posts {
-        nextToken
-      }
-    }
-    comments {
-      items {
-        id
-        content
-      }
-      nextToken
-    }
+subscription OnDeleteSchedule(
+  $scheduleEndDate: AWSDateTime
+  $scheduleId: String
+  $scheduleName: String
+  $scheduleStartDate: AWSDateTime
+) {
+  onDeleteSchedule(
+    scheduleEndDate: $scheduleEndDate
+    scheduleId: $scheduleId
+    scheduleName: $scheduleName
+    scheduleStartDate: $scheduleStartDate
+  ) {
+    scheduleEndDate
+    scheduleId
+    scheduleName
+    scheduleStartDate
   }
 }
-subscription OnCreateComment {
-  onCreateComment {
-    id
-    content
-    post {
-      id
-      title
-      blog {
-        id
-        name
-      }
-      comments {
-        nextToken
-      }
-    }
+subscription OnDeleteTodo(
+  $todoDate: String
+  $todoDescription: String
+  $todoId: String
+  $todoIsComplete: Boolean
+) {
+  onDeleteTodo(
+    todoDate: $todoDate
+    todoDescription: $todoDescription
+    todoId: $todoId
+    todoIsComplete: $todoIsComplete
+  ) {
+    todoDate
+    todoDescription
+    todoId
+    todoIsComplete
   }
 }
-subscription OnUpdateComment {
-  onUpdateComment {
-    id
-    content
-    post {
-      id
-      title
-      blog {
-        id
-        name
-      }
-      comments {
-        nextToken
-      }
-    }
+subscription OnDeleteUser(
+  $userEmail: String
+  $userId: String
+  $userName: String
+) {
+  onDeleteUser(userEmail: $userEmail, userId: $userId, userName: $userName) {
+    userEmail
+    userId
+    userName
   }
 }
-subscription OnDeleteComment {
-  onDeleteComment {
-    id
-    content
-    post {
-      id
-      title
-      blog {
-        id
-        name
-      }
-      comments {
-        nextToken
-      }
-    }
+subscription OnUpdateJournalEntry(
+  $journalContent: String
+  $journalDate: String
+  $journalEntryId: String
+  $journalLocation: String
+) {
+  onUpdateJournalEntry(
+    journalContent: $journalContent
+    journalDate: $journalDate
+    journalEntryId: $journalEntryId
+    journalLocation: $journalLocation
+  ) {
+    journalContent
+    journalDate
+    journalEntryId
+    journalLocation
+  }
+}
+subscription OnUpdateSchedule(
+  $scheduleEndDate: AWSDateTime
+  $scheduleId: String
+  $scheduleName: String
+  $scheduleStartDate: AWSDateTime
+) {
+  onUpdateSchedule(
+    scheduleEndDate: $scheduleEndDate
+    scheduleId: $scheduleId
+    scheduleName: $scheduleName
+    scheduleStartDate: $scheduleStartDate
+  ) {
+    scheduleEndDate
+    scheduleId
+    scheduleName
+    scheduleStartDate
+  }
+}
+subscription OnUpdateTodo(
+  $todoDate: String
+  $todoDescription: String
+  $todoId: String
+  $todoIsComplete: Boolean
+) {
+  onUpdateTodo(
+    todoDate: $todoDate
+    todoDescription: $todoDescription
+    todoId: $todoId
+    todoIsComplete: $todoIsComplete
+  ) {
+    todoDate
+    todoDescription
+    todoId
+    todoIsComplete
+  }
+}
+subscription OnUpdateUser(
+  $userEmail: String
+  $userId: String
+  $userName: String
+) {
+  onUpdateUser(userEmail: $userEmail, userId: $userId, userName: $userName) {
+    userEmail
+    userId
+    userName
   }
 }

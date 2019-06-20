@@ -1,23 +1,4 @@
 {
-    "dev": {
-        "awscloudformation": {
-            "AuthRoleName": "ponderwonder-dev-20190610121303-authRole",
-            "UnauthRoleArn": "arn:aws:iam::973706607165:role/ponderwonder-dev-20190610121303-unauthRole",
-            "AuthRoleArn": "arn:aws:iam::973706607165:role/ponderwonder-dev-20190610121303-authRole",
-            "Region": "us-west-2",
-            "DeploymentBucketName": "ponderwonder-dev-20190610121303-deployment",
-            "UnauthRoleName": "ponderwonder-dev-20190610121303-unauthRole",
-            "StackName": "ponderwonder-dev-20190610121303",
-            "StackId": "arn:aws:cloudformation:us-west-2:973706607165:stack/ponderwonder-dev-20190610121303/c624d420-8bb3-11e9-99d8-028146f68342"
-        },
-        "categories": {
-            "auth": {
-                "ponderwonder3ef49dc6": {
-                    "hostedUIProviderCreds": "[{\"ProviderName\":\"Google\",\"client_id\":\"898731589615-48i2t5k2b68069c760hi7bmibi8ahd00.apps.googleusercontent.com\",\"client_secret\":\"898731589615-48i2t5k2b68069c760hi7bmibi8ahd00.apps.googleusercontent.com\"}]"
-                }
-            }
-        }
-    },
     "newdev": {
         "awscloudformation": {
             "AuthRoleName": "ponderwonder-newdev-20190616225412-authRole",

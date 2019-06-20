@@ -1,4 +1,10 @@
 {
+	"auth": {
+		"ponderwonder3ef49dc6": {
+			"service": "Cognito",
+			"providerPlugin": "awscloudformation"
+		}
+	},
 	"api": {
 		"ponderwonder": {
 			"service": "AppSync",
@@ -6,12 +12,6 @@
 			"output": {
 				"securityType": "API_KEY"
 			}
-		}
-	},
-	"auth": {
-		"ponderwonder3ef49dc6": {
-			"service": "Cognito",
-			"providerPlugin": "awscloudformation"
 		}
 	}
 }
