@@ -70,6 +70,7 @@ public class AWSClient {
 
     // Sample Mutation
     // Dont delete this
+
     public void mutation(AWSAppSyncClient client){
 
         // Create an Input you would like mutate.
@@ -102,6 +103,7 @@ public class AWSClient {
 
     // Sample Subscription
     // Don't delete this
+
     private void subscribe(AWSAppSyncClient client){
 
         // Create Subscription. You can find the list of subscriptions in same folder
