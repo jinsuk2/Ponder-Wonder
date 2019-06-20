@@ -8,6 +8,8 @@ import android.view.ViewGroup;
 import android.widget.DatePicker;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Button;
+import android.widget.EditText;
 
 import androidx.fragment.app.Fragment;
 
@@ -21,6 +23,8 @@ public class CreateJournal extends Fragment {
     DatePickerDialog journalDatePicker;
     ImageButton dateButton;
     TextView tempJournalDate;
+    private EditText mTitleEditText;
+    private EditText mContentEditText;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -31,9 +35,11 @@ public class CreateJournal extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_create_journal, container, false);
+
         tempJournalDate = view.findViewById(R.id.new_date);
         dateButton = view.findViewById(R.id.date_button);
 
+        // On click listener to display selected date in text
         dateButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -52,6 +58,22 @@ public class CreateJournal extends Fragment {
                 journalDatePicker.show();
             }
         });
+
+        mTitleEditText = view.findViewById(R.id.new_title);
+        mContentEditText = view.findViewById(R.id.new_content);
+
+        // Journal save button onclick listener
+        Button saveButton = view.findViewById(R.id.journal_save_button);
+        saveButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String titleText = mTitleEditText.getText().toString();
+                String contentText = mContentEditText.getText().toString();
+                // TODO: get image url to insert
+                Journal journal = new Journal(null, titleText, contentText);
+            }
+        });
+
 
         return view;
     }
