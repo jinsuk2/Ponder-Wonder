@@ -21,7 +21,7 @@ query ListUsers(
 query GetSchedule($id: ID!) {
   getSchedule(id: $id) {
     scheduleId
-    scheduleName
+    ScheduleName
   }
 }
 query ListSchedules(
@@ -32,34 +32,15 @@ query ListSchedules(
   listSchedules(filter: $filter, limit: $limit, nextToken: $nextToken) {
     items {
       scheduleId
-      scheduleName
-    }
-    nextToken
-  }
-}
-query GetTodo($id: ID!) {
-  getTodo(id: $id) {
-    todoDate
-    todoId
-  }
-}
-query ListTodos(
-  $filter: ModelTodoFilterInput
-  $limit: Int
-  $nextToken: String
-) {
-  listTodos(filter: $filter, limit: $limit, nextToken: $nextToken) {
-    items {
-      todoDate
-      todoId
+      ScheduleName
     }
     nextToken
   }
 }
 query GetJournalEntry($id: ID!) {
   getJournalEntry(id: $id) {
-    journalDate
     journalEntryId
+    journalDate
   }
 }
 query ListJournalEntrys(
@@ -69,8 +50,27 @@ query ListJournalEntrys(
 ) {
   listJournalEntrys(filter: $filter, limit: $limit, nextToken: $nextToken) {
     items {
-      journalDate
       journalEntryId
+      journalDate
+    }
+    nextToken
+  }
+}
+query GetTodo($id: ID!) {
+  getTodo(id: $id) {
+    todoId
+    todoDate
+  }
+}
+query ListTodos(
+  $filter: ModelTodoFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listTodos(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      todoId
+      todoDate
     }
     nextToken
   }

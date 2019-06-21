@@ -1,19 +1,17 @@
 type User @model {
-  userId: ID!
+  userId: String!
   userEmail: String!
 }
-
 type Schedule @model {
   scheduleId: String!
-  scheduleName: String!
+  ScheduleName: String!
+}
+type JournalEntry @model {
+  journalEntryId: String!
+  journalDate: String!
 }
 
 type Todo @model {
-  todoDate: String!
-  todoId: String!
-}
-
-type JournalEntry @model {
-  journalDate: String!
-  journalEntryId: String!
+    todoId: String!
+    todoDate: String!
 }

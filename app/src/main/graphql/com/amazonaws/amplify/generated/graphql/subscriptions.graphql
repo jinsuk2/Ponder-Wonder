@@ -20,54 +20,54 @@ subscription OnDeleteUser {
 subscription OnCreateSchedule {
   onCreateSchedule {
     scheduleId
-    scheduleName
+    ScheduleName
   }
 }
 subscription OnUpdateSchedule {
   onUpdateSchedule {
     scheduleId
-    scheduleName
+    ScheduleName
   }
 }
 subscription OnDeleteSchedule {
   onDeleteSchedule {
     scheduleId
-    scheduleName
-  }
-}
-subscription OnCreateTodo {
-  onCreateTodo {
-    todoDate
-    todoId
-  }
-}
-subscription OnUpdateTodo {
-  onUpdateTodo {
-    todoDate
-    todoId
-  }
-}
-subscription OnDeleteTodo {
-  onDeleteTodo {
-    todoDate
-    todoId
+    ScheduleName
   }
 }
 subscription OnCreateJournalEntry {
   onCreateJournalEntry {
-    journalDate
     journalEntryId
+    journalDate
   }
 }
 subscription OnUpdateJournalEntry {
   onUpdateJournalEntry {
-    journalDate
     journalEntryId
+    journalDate
   }
 }
 subscription OnDeleteJournalEntry {
   onDeleteJournalEntry {
-    journalDate
     journalEntryId
+    journalDate
+  }
+}
+subscription OnCreateTodo {
+  onCreateTodo {
+    todoId
+    todoDate
+  }
+}
+subscription OnUpdateTodo {
+  onUpdateTodo {
+    todoId
+    todoDate
+  }
+}
+subscription OnDeleteTodo {
+  onDeleteTodo {
+    todoId
+    todoDate
   }
 }
