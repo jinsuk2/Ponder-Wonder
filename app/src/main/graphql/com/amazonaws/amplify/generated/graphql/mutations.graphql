@@ -1,12 +1,36 @@
 # this is an auto generated file. This will be overwritten
-mutation CreateJournalEntry($input: CreateJournalEntryInput!) {
-  createJournalEntry(input: $input) {
-    journalDate
-    journalEntryId
+mutation CreateUser($input: CreateUserInput!) {
+  createUser(input: $input) {
+    userId
+    userEmail
+  }
+}
+mutation UpdateUser($input: UpdateUserInput!) {
+  updateUser(input: $input) {
+    userId
+    userEmail
+  }
+}
+mutation DeleteUser($input: DeleteUserInput!) {
+  deleteUser(input: $input) {
+    userId
+    userEmail
   }
 }
 mutation CreateSchedule($input: CreateScheduleInput!) {
   createSchedule(input: $input) {
+    scheduleId
+    scheduleName
+  }
+}
+mutation UpdateSchedule($input: UpdateScheduleInput!) {
+  updateSchedule(input: $input) {
+    scheduleId
+    scheduleName
+  }
+}
+mutation DeleteSchedule($input: DeleteScheduleInput!) {
+  deleteSchedule(input: $input) {
     scheduleId
     scheduleName
   }
@@ -17,22 +41,10 @@ mutation CreateTodo($input: CreateTodoInput!) {
     todoId
   }
 }
-mutation CreateUser($input: CreateUserInput!) {
-  createUser(input: $input) {
-    userEmail
-    userId
-  }
-}
-mutation DeleteJournalEntry($input: DeleteJournalEntryInput!) {
-  deleteJournalEntry(input: $input) {
-    journalDate
-    journalEntryId
-  }
-}
-mutation DeleteSchedule($input: DeleteScheduleInput!) {
-  deleteSchedule(input: $input) {
-    scheduleId
-    scheduleName
+mutation UpdateTodo($input: UpdateTodoInput!) {
+  updateTodo(input: $input) {
+    todoDate
+    todoId
   }
 }
 mutation DeleteTodo($input: DeleteTodoInput!) {
@@ -41,10 +53,10 @@ mutation DeleteTodo($input: DeleteTodoInput!) {
     todoId
   }
 }
-mutation DeleteUser($input: DeleteUserInput!) {
-  deleteUser(input: $input) {
-    userEmail
-    userId
+mutation CreateJournalEntry($input: CreateJournalEntryInput!) {
+  createJournalEntry(input: $input) {
+    journalDate
+    journalEntryId
   }
 }
 mutation UpdateJournalEntry($input: UpdateJournalEntryInput!) {
@@ -53,21 +65,9 @@ mutation UpdateJournalEntry($input: UpdateJournalEntryInput!) {
     journalEntryId
   }
 }
-mutation UpdateSchedule($input: UpdateScheduleInput!) {
-  updateSchedule(input: $input) {
-    scheduleId
-    scheduleName
-  }
-}
-mutation UpdateTodo($input: UpdateTodoInput!) {
-  updateTodo(input: $input) {
-    todoDate
-    todoId
-  }
-}
-mutation UpdateUser($input: UpdateUserInput!) {
-  updateUser(input: $input) {
-    userEmail
-    userId
+mutation DeleteJournalEntry($input: DeleteJournalEntryInput!) {
+  deleteJournalEntry(input: $input) {
+    journalDate
+    journalEntryId
   }
 }

@@ -1,43 +1,31 @@
 # this is an auto generated file. This will be overwritten
-query GetJournalEntry($journalDate: String!, $journalEntryId: String!) {
-  getJournalEntry(journalDate: $journalDate, journalEntryId: $journalEntryId) {
-    journalDate
-    journalEntryId
-  }
-}
-query GetSchedule($scheduleId: String!, $scheduleName: String!) {
-  getSchedule(scheduleId: $scheduleId, scheduleName: $scheduleName) {
-    scheduleId
-    scheduleName
-  }
-}
-query GetTodo($todoDate: String!, $todoId: String!) {
-  getTodo(todoDate: $todoDate, todoId: $todoId) {
-    todoDate
-    todoId
-  }
-}
-query GetUser($userEmail: String!, $userId: ID!) {
-  getUser(userEmail: $userEmail, userId: $userId) {
-    userEmail
+query GetUser($id: ID!) {
+  getUser(id: $id) {
     userId
+    userEmail
   }
 }
-query ListJournalEntries(
-  $filter: TableJournalEntryFilterInput
+query ListUsers(
+  $filter: ModelUserFilterInput
   $limit: Int
   $nextToken: String
 ) {
-  listJournalEntries(filter: $filter, limit: $limit, nextToken: $nextToken) {
+  listUsers(filter: $filter, limit: $limit, nextToken: $nextToken) {
     items {
-      journalDate
-      journalEntryId
+      userId
+      userEmail
     }
     nextToken
   }
 }
+query GetSchedule($id: ID!) {
+  getSchedule(id: $id) {
+    scheduleId
+    scheduleName
+  }
+}
 query ListSchedules(
-  $filter: TableScheduleFilterInput
+  $filter: ModelScheduleFilterInput
   $limit: Int
   $nextToken: String
 ) {
@@ -49,8 +37,14 @@ query ListSchedules(
     nextToken
   }
 }
+query GetTodo($id: ID!) {
+  getTodo(id: $id) {
+    todoDate
+    todoId
+  }
+}
 query ListTodos(
-  $filter: TableTodoFilterInput
+  $filter: ModelTodoFilterInput
   $limit: Int
   $nextToken: String
 ) {
@@ -62,15 +56,21 @@ query ListTodos(
     nextToken
   }
 }
-query ListUsers(
-  $filter: TableUserFilterInput
+query GetJournalEntry($id: ID!) {
+  getJournalEntry(id: $id) {
+    journalDate
+    journalEntryId
+  }
+}
+query ListJournalEntrys(
+  $filter: ModelJournalEntryFilterInput
   $limit: Int
   $nextToken: String
 ) {
-  listUsers(filter: $filter, limit: $limit, nextToken: $nextToken) {
+  listJournalEntrys(filter: $filter, limit: $limit, nextToken: $nextToken) {
     items {
-      userEmail
-      userId
+      journalDate
+      journalEntryId
     }
     nextToken
   }

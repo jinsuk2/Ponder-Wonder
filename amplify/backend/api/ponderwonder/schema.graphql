@@ -1,0 +1,19 @@
+type User @model {
+  userId: ID!
+  userEmail: String!
+}
+
+type Schedule @model {
+  scheduleId: String!
+  scheduleName: String!
+}
+
+type Todo @model {
+  todoDate: String!
+  todoId: String!
+}
+
+type JournalEntry @model {
+  journalDate: String!
+  journalEntryId: String!
+}

@@ -1,91 +1,73 @@
 # this is an auto generated file. This will be overwritten
-subscription OnCreateJournalEntry(
-  $journalDate: String
-  $journalEntryId: String
-) {
-  onCreateJournalEntry(
-    journalDate: $journalDate
-    journalEntryId: $journalEntryId
-  ) {
-    journalDate
-    journalEntryId
+subscription OnCreateUser {
+  onCreateUser {
+    userId
+    userEmail
   }
 }
-subscription OnCreateSchedule($scheduleId: String, $scheduleName: String) {
-  onCreateSchedule(scheduleId: $scheduleId, scheduleName: $scheduleName) {
+subscription OnUpdateUser {
+  onUpdateUser {
+    userId
+    userEmail
+  }
+}
+subscription OnDeleteUser {
+  onDeleteUser {
+    userId
+    userEmail
+  }
+}
+subscription OnCreateSchedule {
+  onCreateSchedule {
     scheduleId
     scheduleName
   }
 }
-subscription OnCreateTodo($todoDate: String, $todoId: String) {
-  onCreateTodo(todoDate: $todoDate, todoId: $todoId) {
-    todoDate
-    todoId
-  }
-}
-subscription OnCreateUser($userEmail: String, $userId: ID) {
-  onCreateUser(userEmail: $userEmail, userId: $userId) {
-    userEmail
-    userId
-  }
-}
-subscription OnDeleteJournalEntry(
-  $journalDate: String
-  $journalEntryId: String
-) {
-  onDeleteJournalEntry(
-    journalDate: $journalDate
-    journalEntryId: $journalEntryId
-  ) {
-    journalDate
-    journalEntryId
-  }
-}
-subscription OnDeleteSchedule($scheduleId: String, $scheduleName: String) {
-  onDeleteSchedule(scheduleId: $scheduleId, scheduleName: $scheduleName) {
+subscription OnUpdateSchedule {
+  onUpdateSchedule {
     scheduleId
     scheduleName
   }
 }
-subscription OnDeleteTodo($todoDate: String, $todoId: String) {
-  onDeleteTodo(todoDate: $todoDate, todoId: $todoId) {
-    todoDate
-    todoId
-  }
-}
-subscription OnDeleteUser($userEmail: String, $userId: ID) {
-  onDeleteUser(userEmail: $userEmail, userId: $userId) {
-    userEmail
-    userId
-  }
-}
-subscription OnUpdateJournalEntry(
-  $journalDate: String
-  $journalEntryId: String
-) {
-  onUpdateJournalEntry(
-    journalDate: $journalDate
-    journalEntryId: $journalEntryId
-  ) {
-    journalDate
-    journalEntryId
-  }
-}
-subscription OnUpdateSchedule($scheduleId: String, $scheduleName: String) {
-  onUpdateSchedule(scheduleId: $scheduleId, scheduleName: $scheduleName) {
+subscription OnDeleteSchedule {
+  onDeleteSchedule {
     scheduleId
     scheduleName
   }
 }
-subscription OnUpdateTodo($todoDate: String, $todoId: String) {
-  onUpdateTodo(todoDate: $todoDate, todoId: $todoId) {
+subscription OnCreateTodo {
+  onCreateTodo {
     todoDate
     todoId
   }
 }
-subscription OnUpdateUser($userEmail: String, $userId: ID) {
-  onUpdateUser(userEmail: $userEmail, userId: $userId) {
-    userEmail
-    userId
+subscription OnUpdateTodo {
+  onUpdateTodo {
+    todoDate
+    todoId
+  }
+}
+subscription OnDeleteTodo {
+  onDeleteTodo {
+    todoDate
+    todoId
+  }
+}
+subscription OnCreateJournalEntry {
+  onCreateJournalEntry {
+    journalDate
+    journalEntryId
+  }
+}
+subscription OnUpdateJournalEntry {
+  onUpdateJournalEntry {
+    journalDate
+    journalEntryId
+  }
+}
+subscription OnDeleteJournalEntry {
+  onDeleteJournalEntry {
+    journalDate
+    journalEntryId
   }
 }

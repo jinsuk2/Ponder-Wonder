@@ -1,4 +1,4 @@
 {
-    "AppSyncApiName": "ponderwonderAPI",
+    "AppSyncApiName": "ponderwonder",
     "DynamoDBBillingMode": "PAY_PER_REQUEST"
 }
