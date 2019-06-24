@@ -78,8 +78,8 @@ public class AWSClient {
         CreateTodoInput createTodoInput = CreateTodoInput.builder().
                 // Parameters
                 todoDate("Sample").
-                todoDescription("Testing description").
-                todoIsComplete(false).
+//                todoDescription("Testing description").
+//                todoIsComplete(false).
                 build();
 
         // Perform mutation by building mutation with input and enqueue callback

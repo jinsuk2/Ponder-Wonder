@@ -141,6 +141,24 @@ Parameters:
       
   hostedUIProviderMeta:
     Type: String
+              
+  thirdPartyAuth:
+    Type: String
+                
+  authProviders:
+    Type: CommaDelimitedList
+        
+  addCallbackOnUpdate:
+    Type: String
+            
+  addLogoutOnUpdate:
+    Type: String
+          
+  googleClientId:
+    Type: String
+            
+  googleAndroid:
+    Type: String
             
   hostedUIProviderCreds:
     Type: String
@@ -209,8 +227,8 @@ Resources:
       Policies:
         PasswordPolicy:
           MinimumLength: !Ref passwordPolicyMinLength
-          RequireLowercase: false
-          RequireNumbers: false
+          RequireLowercase: true
+          RequireNumbers: true
           RequireSymbols: false
           RequireUppercase: false
       
@@ -229,6 +247,9 @@ Resources:
     Properties:
       ClientName: ponder3ef49dc6_app_clientWeb
       
+      ReadAttributes: !Ref userpoolClientReadAttributes
+      WriteAttributes: !Ref userpoolClientWriteAttributes
+      
       RefreshTokenValidity: !Ref userpoolClientRefreshTokenValidity
       UserPoolId: !Ref UserPool
     DependsOn: UserPool
@@ -238,6 +259,9 @@ Resources:
     Type: "AWS::Cognito::UserPoolClient"
     Properties:
       ClientName: !Ref userpoolClientName
+      
+      ReadAttributes: !Ref userpoolClientReadAttributes
+      WriteAttributes: !Ref userpoolClientWriteAttributes
       
       GenerateSecret: !Ref userpoolClientGenerateSecret
       RefreshTokenValidity: !Ref userpoolClientRefreshTokenValidity
@@ -718,6 +742,13 @@ Resources:
             - cognito-idp.${region}.amazonaws.com/${client}
             - { region: !Ref "AWS::Region",  client: !Ref UserPool}
             
+      SupportedLoginProviders: 
+        
+        
+        accounts.google.com: !Ref googleClientId
+        
+        
+      
       AllowUnauthenticatedIdentities: !Ref allowUnauthenticatedIdentities
        
        
@@ -767,8 +798,14 @@ Outputs :
   AppClientSecret:
     Value: !GetAtt UserPoolClientInputs.appSecret
   
+  
+  GoogleWebClient:
+    Value: !Ref googleClientId
    
    
+  
+  GoogleAndroidClient:
+    Value: !Ref googleAndroid
   
    
    

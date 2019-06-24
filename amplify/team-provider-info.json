@@ -13,6 +13,8 @@
         "categories": {
             "auth": {
                 "ponderwonder3ef49dc6": {
+                    "googleClientId": "6toa6nr78njug23acivr39pola",
+                    "googleAndroid": "j22vi8fud6l55mea68vn0hs8l",
                     "hostedUIProviderCreds": "[{\"ProviderName\":\"Google\",\"client_id\":\"898731589615-48i2t5k2b68069c760hi7bmibi8ahd00.apps.googleusercontent.com\",\"client_secret\":\"898731589615-48i2t5k2b68069c760hi7bmibi8ahd00.apps.googleusercontent.com\"}]"
                 }
             }
