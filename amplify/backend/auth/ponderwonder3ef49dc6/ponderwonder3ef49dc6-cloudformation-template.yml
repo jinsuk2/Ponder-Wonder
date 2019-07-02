@@ -69,10 +69,10 @@ Parameters:
               
   defaultPasswordPolicy:
     Type: String
-              
+          
   passwordPolicyMinLength:
-    Type: Number
-              
+    Type: String
+                  
   passwordPolicyCharacters:
     Type: CommaDelimitedList
             
