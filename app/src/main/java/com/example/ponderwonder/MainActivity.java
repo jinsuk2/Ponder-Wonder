@@ -15,8 +15,6 @@ import android.util.Log;
 import android.view.MenuItem;
 
 import com.amazonaws.mobile.client.AWSMobileClient;
-import com.amazonaws.mobile.client.AWSStartupHandler;
-import com.amazonaws.mobile.client.AWSStartupResult;
 import com.amazonaws.mobile.client.Callback;
 import com.amazonaws.mobile.client.UserStateDetails;
 import com.amazonaws.mobileconnectors.appsync.AWSAppSyncClient;

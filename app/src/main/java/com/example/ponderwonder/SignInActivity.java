@@ -5,15 +5,19 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.amazonaws.mobile.client.AWSMobileClient;
 import com.amazonaws.mobile.client.Callback;
 import com.amazonaws.mobile.client.IdentityProvider;
+import com.amazonaws.mobile.client.SignInUIOptions;
 import com.amazonaws.mobile.client.UserStateDetails;
 import com.amazonaws.mobile.config.AWSConfiguration;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
@@ -21,8 +25,13 @@ import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.SignInButton;
+import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+
+import java.util.zip.Inflater;
+
+import javax.annotation.Nullable;
 
 import static com.amazonaws.mobile.client.internal.oauth2.OAuth2Client.TAG;
 
@@ -35,53 +44,60 @@ public class SignInActivity extends AppCompatActivity {
     private AWSConfiguration mAWSConfiguration;
     private AWSMobileClient mAWSMobileClient;
 
-    private View mSignInView;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_in);
-
+        setupAWS();
+        setupUI();
     }
 
-    private View signIn() {
-//        mAWSMobileClient = AWSMobileClient.getInstance();
-//        mAWSMobileClient.federatedSignIn(IdentityProvider.GOOGLE.toString(), "GOOGLE_TOKEN_HERE", new Callback<UserStateDetails>() {
-//            @Override
-//            public void onResult(final UserStateDetails result) {
-//                Log.i(TAG, "Signed In!" + result.getUserState().name());
-//            }
-//
-//            @Override
-//            public void onError(Exception e) {
-//                Log.e(TAG, "sign-in error", e);
-//            }
-//        });
-//
-//        // Variables Required
-//        mSignInView = inflater.inflate(R.layout.fragment_sign_in, container, false);
-//        final SignInButton signInButton = mSignInView.findViewById(R.id.googleSignInButton);
-//        final Button signOutButton = mSignInView.findViewById(R.id.sign_out_button);
-//        final NavController navController = Navigation.findNavController(super.getActivity(), R.id.mainNavigationFragment);
-//        final TextView userName = mSignInView.findViewById(R.id.user_name);
-//
-////        userName.setText(GoogleSignIn.getSignedInAccountFromIntent(mGoogleSignInClient.getSignInIntent()));
-//        signInButton.setSize(SignInButton.SIZE_STANDARD);
-//
-//        // Sign In Option
-//        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-//                .requestEmail()
-//                .build();
-//
-//        // Init SignInClient
-//        mGoogleSignInClient = GoogleSignIn.getClient(super.getActivity(), gso);
-//
-//        mGoogleSignInAccount = GoogleSignIn.getLastSignedInAccount(super.getActivity());
-//
-//        // Click button to SignIn with Google
-//        signInButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
+    private void setupAWS() {
+        AWSMobileClient.getInstance().initialize(getApplicationContext(), new Callback<UserStateDetails>() {
+            @Override
+            public void onResult(UserStateDetails result) {
+                //do things
+                switch(result.getUserState()) {
+                    case SIGNED_IN:
+                        break;
+                    case SIGNED_OUT:
+                        showSignIn();
+                        break;
+//                    case SIGNED_OUT_USER_POOLS_TOKENS_INVALID:
+//                        break;
+//                    case SIGNED_OUT_FEDERATED_TOKENS_INVALID:
+//                        break;
+                    case GUEST:
+                        break;
+                    default:
+                        break;
+                }
+                Log.i("INIT", "onResult: " + result.getUserState());
+            }
+
+            @Override
+            public void onError(Exception e) {
+
+            }
+        });
+    }
+
+    private void setupUI() {
+
+        final SignInButton signInButton = findViewById(R.id.googleSignInButton);
+        final TextView userName = findViewById(R.id.user_name);
+
+        signInButton.setSize(SignInButton.SIZE_STANDARD);
+        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestEmail()
+                .build();
+
+        mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
+        mGoogleSignInAccount = GoogleSignIn.getLastSignedInAccount(this);
+
+        signInButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 //                mAWSMobileClient.federatedSignIn(IdentityProvider.GOOGLE.toString(), "GOOGLE_TOKEN_HERE", new Callback<UserStateDetails>() {
 //                    @Override
 //                    public void onResult(final UserStateDetails result) {
@@ -93,29 +109,92 @@ public class SignInActivity extends AppCompatActivity {
 //                        Log.e(TAG, "sign-in error", e);
 //                    }
 //                });
-//
-//                startActivityForResult(mGoogleSignInClient.getSignInIntent(), RC_SIGN_IN);
-//                if ( mGoogleSignInAccount != null) {
-//                    userName.setText("Welcome Back! " + mGoogleSignInAccount.getEmail());
-//                };
-//            }
-//        });
-//
-//        // SignOut Button
+                startActivityForResult(mGoogleSignInClient.getSignInIntent(), RC_SIGN_IN);
+
+                // TODO: Move this part to MainActivity
+                //                    userName.setText("Welcome Back! " + mGoogleSignInAccount.getEmail());
+
+                if ( mGoogleSignInAccount != null) {
+                    Toast.makeText(SignInActivity.super.getApplicationContext(), "Logged in! " + mGoogleSignInAccount.getEmail(), Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(SignInActivity.this, MainActivity.class);
+                    startActivity(intent);
+                } else {
+                    Toast.makeText(SignInActivity.super.getApplicationContext(), "You need to log in first", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+        // TODO: Move to Main Account Screen
 //        signOutButton.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View v) {
-//                mGoogleSignInClient.signOut()
-//                        .addOnCompleteListener(SignIn.super.getActivity(), new OnCompleteListener<Void>() {
-//                            @Override
-//                            public void onComplete(@NonNull Task<Void> task) {
-//                                userName.setText("No Current User");
-//                            }
-//                        });
+//                if (mGoogleSignInAccount != null) {
+//                    mGoogleSignInClient.signOut()
+//                            .addOnCompleteListener(SignInActivity.super.getParent(), new OnCompleteListener<Void>() {
+//                                @Override
+//                                public void onComplete(@NonNull Task<Void> task) {
+//
+//                                }
+//                            });
+//                } else {
+//                    Toast.makeText(SignInActivity.super.getApplicationContext(), "No account Signed In", Toast.LENGTH_SHORT).show();
+//                }
 //            }
 //        });
-//
-//        return mSignInView;
-        return null;
+
+    }
+    @Override
+    public void onStart() {
+        super.onStart();
+        updateUI(mGoogleSignInAccount);
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        switch (requestCode) {
+            case RC_SIGN_IN:
+                handleSignInResult(GoogleSignIn.getSignedInAccountFromIntent(data));
+        }
+    }
+
+    // Handles whether SignInInfo is valid or not
+    private void handleSignInResult(Task<GoogleSignInAccount> completedTask) {
+        try {
+            updateUI(completedTask.getResult(ApiException.class));
+        } catch (ApiException e) {
+            error(this.getClass().getName(), "signInResult::failed code= " + e.getStatusCode());
+            updateUI(null);
+        }
+    }
+
+    // Loads Home Screen when SignedIn
+    private void updateUI(GoogleSignInAccount account) {
+        if (account != null) {
+            // Add navigation to Home Screen after login
+            Toast.makeText(this, "Test", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    // Notifies Error as Toast
+    private void error(String name, String msg) {
+        Log.w(name, msg);
+        Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
+    }
+
+    private void showSignIn() {
+        AWSMobileClient.getInstance().showSignIn(this, SignInUIOptions
+                .builder()
+                .build(), new Callback<UserStateDetails>() {
+            @Override
+            public void onResult(UserStateDetails result) {
+                Toast.makeText(SignInActivity.super.getApplicationContext(), "What?", Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onError(Exception e) {
+
+            }
+        });
     }
 }

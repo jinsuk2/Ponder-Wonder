@@ -41,7 +41,7 @@ public class Today extends Fragment {
 
         final NavController navController = Navigation.findNavController(super.getActivity(), R.id.mainNavigationFragment);
         final View todayView = inflater.inflate(R.layout.fragment_today, container, false);
-        final Button button = todayView.findViewById(R.id.testButton);
+//        final Button button = todayView.findViewById(R.id.testButton);
         final ScrollView scrollView = todayView.findViewById(R.id.today_container);
 
         // TODO: Implement Scrollable Today Screen
@@ -53,13 +53,6 @@ public class Today extends Fragment {
 //                }
 //            }
 //        });
-
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                navController.navigate(R.id.signIn);
-            }
-        });
 
         // Inflate the layout for this fragment
         return todayView;

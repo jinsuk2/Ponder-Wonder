@@ -6,32 +6,11 @@
     app:startDestination="@id/today">
 
     <fragment
-        android:id="@+id/signIn"
-        android:label="@string/labelSignIn"
-        android:name="com.example.ponderwonder.SignIn"
-        tools:layout="@layout/fragment_sign_in"
-        />
-
-    <fragment
         android:id="@+id/today"
         android:label="@string/labelToday"
         android:name="com.example.ponderwonder.Today"
         tools:layout="@layout/fragment_today"
         >
-
-        <argument
-            android:name="title"
-            android:defaultValue="@string/labelToday"
-        />
-
-        <action
-            android:id="@+id/openSignInAction"
-            app:destination="@id/signIn"
-            app:enterAnim="@anim/nav_default_enter_anim"
-            app:exitAnim="@anim/nav_default_exit_anim"
-            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
-            app:popExitAnim="@anim/nav_default_pop_exit_anim"
-            />
 
     </fragment>
 

@@ -31,12 +31,7 @@
             <!--android:name="com.example.ponderwonder.clock.Weather"-->
             <!--/>-->
     <!--</View>-->
-    <Button
-        android:id="@+id/testButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TEST BUTTON TO NAV TO SIGN IN"
-        />
+
     </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

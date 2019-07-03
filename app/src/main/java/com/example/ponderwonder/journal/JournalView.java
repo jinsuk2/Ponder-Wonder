@@ -75,9 +75,7 @@ public class JournalView extends Fragment {
 
         for (int i = 0; i < 10; i++) {
             Journal myJournal = new Journal(
-                    "https://mblogthumb-phinf.pstatic.net/MjAxNzAzMjBfMjA2/MDAxNDkwMDE4OTE0MTk4." +
-                            "zG9I2lLGbHszcoTXm9R3roENZuyZY3gV8oPozZzHKmgg.2o5-VCaR4mBmqMsYth3bPDPtOFSbhR1I_" +
-                            "qP0E1zeV-cg.PNG.shcho2242/untitled.png?type=w800",
+                    "https://cdn.vox-cdn.com/thumbor/XF4LxCPjJf-f1wWVo2pZUPoxOQs=/0x0:6016x4016/920x613/filters:focal(2527x1527:3489x2489):format(webp)/cdn.vox-cdn.com/uploads/chorus_image/image/57265735/shutterstock_321760214.0.jpg",
                     "This is a title!",
                     "This is a content box! This is a content box! This is a content box!");
             journalList.add(i, myJournal);
