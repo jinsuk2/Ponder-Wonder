@@ -12,11 +12,7 @@
         },
         "categories": {
             "auth": {
-                "ponderwonder3ef49dc6": {
-                    "googleClientId": "898731589615-48i2t5k2b68069c760hi7bmibi8ahd00.apps.googleusercontent.com",
-                    "googleAndroid": "898731589615-48i2t5k2b68069c760hi7bmibi8ahd00.apps.googleusercontent.com",
-                    "hostedUIProviderCreds": "[{\"ProviderName\":\"Google\",\"client_id\":\"898731589615-48i2t5k2b68069c760hi7bmibi8ahd00.apps.googleusercontent.com\",\"client_secret\":\"898731589615-48i2t5k2b68069c760hi7bmibi8ahd00.apps.googleusercontent.com\"}]"
-                }
+                "ponderwonder3ef49dc6": {}
             }
         }
     }
