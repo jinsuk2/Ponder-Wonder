@@ -22,11 +22,8 @@
     "emailVerificationSubject": "Your verification code",
     "emailVerificationMessage": "Your verification code is {####}",
     "defaultPasswordPolicy": true,
-    "passwordPolicyMinLength": "6",
-    "passwordPolicyCharacters": [
-        "Requires Lowercase",
-        "Requires Numbers"
-    ],
+    "passwordPolicyMinLength": 8,
+    "passwordPolicyCharacters": [],
     "requiredAttributes": [
         "email"
     ],
@@ -67,21 +64,11 @@
             "Arn"
         ]
     },
-    "useDefault": "manual",
+    "useDefault": "default",
     "hostedUI": true,
     "usernameAttributes": [
         "email"
     ],
-    "hostedUIDomainName": "ponderwonder3ef49dc6-3ef49dc6",
-    "authProvidersUserPool": [
-        "Google"
-    ],
-    "hostedUIProviderMeta": "[{\"ProviderName\":\"Google\",\"authorize_scopes\":\"openid email profile\",\"AttributeMapping\":{\"email\":\"email\",\"username\":\"sub\"}}]",
-    "thirdPartyAuth": true,
-    "authProviders": [
-        "accounts.google.com"
-    ],
     "addCallbackOnUpdate": false,
-    "addLogoutOnUpdate": false,
-    "oAuthMetadata": "{\"AllowedOAuthFlows\":[\"code\"],\"AllowedOAuthScopes\":[\"phone\",\"email\",\"openid\",\"profile\",\"aws.cognito.signin.user.admin\"],\"CallbackURLs\":[\"http://localhost:3000/\"],\"LogoutURLs\":[\"http://localhost:3000/\"]}"
+    "addLogoutOnUpdate": false
 }
